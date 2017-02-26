@@ -31,7 +31,7 @@ class plant
     /**
      * @var int
      *
-     * @ORM\Column(name="soil", type="integer")
+     * @ORM\ManyToOne(targetEntity="Soil")
      */
     private $soil;
 

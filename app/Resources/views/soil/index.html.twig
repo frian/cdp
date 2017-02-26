@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Soils list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for soil in soils %}
+            <tr>
+                <td><a href="{{ path('admin_soil_show', { 'id': soil.id }) }}">{{ soil.id }}</a></td>
+                <td>{{ soil.name }}</td>
+                <td>{{ soil.description }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('admin_soil_show', { 'id': soil.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('admin_soil_edit', { 'id': soil.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('admin_soil_new') }}">Create a new soil</a>
+        </li>
+    </ul>
+{% endblock %}
