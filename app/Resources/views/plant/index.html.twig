@@ -1,0 +1,75 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Plants list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Soil</th>
+                <th>Seedsquantity</th>
+                <th>Seedsquantityunit</th>
+                <th>Seedingdepth</th>
+                <th>Linedistance</th>
+                <th>Lineinterval</th>
+                <th>Watering</th>
+                <th>Undercoverstart</th>
+                <th>Undercoverend</th>
+                <th>Ingroundstart</th>
+                <th>Ingroundend</th>
+                <th>Plantingstart</th>
+                <th>Plantingend</th>
+                <th>Harverststart</th>
+                <th>Harvestend</th>
+                <th>Friendlyplants</th>
+                <th>Enemyplants</th>
+                <th>Tips</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for plant in plants %}
+            <tr>
+                <td><a href="{{ path('admin_plant_show', { 'id': plant.id }) }}">{{ plant.id }}</a></td>
+                <td>{{ plant.name }}</td>
+                <td>{{ plant.soil }}</td>
+                <td>{{ plant.seedsQuantity }}</td>
+                <td>{{ plant.seedsQuantityUnit }}</td>
+                <td>{{ plant.seedingDepth }}</td>
+                <td>{{ plant.lineDistance }}</td>
+                <td>{{ plant.lineInterval }}</td>
+                <td>{{ plant.watering }}</td>
+                <td>{{ plant.underCoverStart }}</td>
+                <td>{{ plant.underCoverEnd }}</td>
+                <td>{{ plant.inGroundStart }}</td>
+                <td>{{ plant.inGroundEnd }}</td>
+                <td>{{ plant.plantingStart }}</td>
+                <td>{{ plant.plantingEnd }}</td>
+                <td>{{ plant.harverstStart }}</td>
+                <td>{{ plant.harvestEnd }}</td>
+                <td>{{ plant.friendlyPlants }}</td>
+                <td>{{ plant.enemyPlants }}</td>
+                <td>{{ plant.tips }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('admin_plant_show', { 'id': plant.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('admin_plant_edit', { 'id': plant.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('admin_plant_new') }}">Create a new plant</a>
+        </li>
+    </ul>
+{% endblock %}
