@@ -2,7 +2,7 @@
 
 namespace AppBundle\Controller;
 
-use AppBundle\Entity\plant;
+use AppBundle\Entity\Plant;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component\HttpFoundation\Request;
@@ -12,7 +12,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component
  *
  * @Route("admin/plant")
  */
-class plantController extends Controller
+class PlantController extends Controller
 {
     /**
      * Lists all plant entities.
@@ -24,7 +24,7 @@ class plantController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $plants = $em->getRepository('AppBundle:plant')->findAll();
+        $plants = $em->getRepository('AppBundle:Plant')->findAll();
 
         return $this->render('plant/index.html.twig', array(
             'plants' => $plants,
@@ -40,7 +40,7 @@ class plantController extends Controller
     public function newAction(Request $request)
     {
         $plant = new Plant();
-        $form = $this->createForm('AppBundle\Form\plantType', $plant);
+        $form = $this->createForm('AppBundle\Form\PlantType', $plant);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -82,7 +82,7 @@ class plantController extends Controller
     public function editAction(Request $request, plant $plant)
     {
         $deleteForm = $this->createDeleteForm($plant);
-        $editForm = $this->createForm('AppBundle\Form\plantType', $plant);
+        $editForm = $this->createForm('AppBundle\Form\PlantType', $plant);
         $editForm->handleRequest($request);
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {

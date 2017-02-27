@@ -6,7 +6,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class plantType extends AbstractType
+class PlantType extends AbstractType
 {
     /**
      * {@inheritdoc}
@@ -41,7 +41,7 @@ class plantType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'AppBundle\Entity\plant'
+            'data_class' => 'AppBundle\Entity\Plant'
         ));
     }
 
