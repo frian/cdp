@@ -29,7 +29,7 @@ class LoadSoilData extends AbstractFixture implements OrderedFixtureInterface
     public function load(ObjectManager $manager)
     {
 
-    	$Soils = array(
+    	$data = array(
     		0 => array(
     			'name' => 'riche',
     		),
@@ -44,16 +44,16 @@ class LoadSoilData extends AbstractFixture implements OrderedFixtureInterface
     	/**
     	 * Add users
     	 */
-    	foreach ( $Soils as $index => $SoilData ) {
+    	foreach ( $data as $index => $item ) {
 
 	    	// create user
-	        $Soil = new Soil();
-	        $Soil->setName($SoilData['name']);
+	        $entity = new Soil();
+	        $entity->setName($item['name']);
 
 	        // add reference for further fixtures
-	        $this->addReference('Soil'.$index, $Soil);
+	        $this->addReference('Soil'.$index, $entity);
 
-	    	$manager->persist($Soil);
+	    	$manager->persist($entity);
 	    	$manager->flush();
     	}
 
