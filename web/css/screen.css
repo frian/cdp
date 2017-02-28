@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css?family=Muli:300,400");
+@import url("https://fonts.googleapis.com/css?family=Kalam:300,400,700");
 /* atinfo base scss */
 /* COMPASS IMPORTS */
 /* line 5, ../../../../../../../../usr/share/compass/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
@@ -67,3 +69,325 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
 
 /* OWN MIXINS */
 /* Simple animation with named arguments */
+/*
+    main elements
+*/
+/* line 18, ../sass/screen.scss */
+html, body {
+  height: 100%;
+  width: 100%;
+  font-size: 16px;
+}
+
+/* line 24, ../sass/screen.scss */
+body {
+  font-size: 1em;
+  line-height: 1.25;
+  font-family: 'Kalam', cursive;
+  text-align: center;
+  background-color: black;
+  display: table;
+  width: 100%;
+}
+
+/* line 35, ../sass/screen.scss */
+#content {
+  display: table-row;
+  vertical-align: middle;
+}
+
+/* line 41, ../sass/screen.scss */
+#nav {
+  display: table-row;
+  height: 50%;
+}
+
+/* line 46, ../sass/screen.scss */
+.cell {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+/* line 52, ../sass/screen.scss */
+#bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+/* line 59, ../sass/screen.scss */
+.bgwidth {
+  width: 100%;
+}
+
+/* line 60, ../sass/screen.scss */
+.bgheight {
+  height: 100%;
+}
+
+/*
+    top containers
+*/
+/* line 66, ../sass/screen.scss */
+table, .indexContainer {
+  width: 96%;
+  height: 90%;
+  margin: auto;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  background-color: rgba(255, 255, 255, 0.9);
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+  display: table;
+  table-layout: fixed;
+}
+
+/* line 80, ../sass/screen.scss */
+.indexContainer {
+  padding-bottom: 10px;
+  height: auto;
+}
+
+/* line 85, ../sass/screen.scss */
+.indexContainer h1 {
+  display: inline-block;
+  margin: 10px;
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+  font-size: 2em;
+  line-height: 1.25;
+}
+
+/* line 96, ../sass/screen.scss */
+.indexContainer p {
+  font-size: 1.1em;
+  margin: 5px 10px;
+  font-weight: 300;
+}
+
+/* line 106, ../sass/screen.scss */
+tr.header td {
+  padding: 2px 5px;
+  border-bottom: 1px solid #aaa;
+  border-top: 1px solid #aaa;
+}
+
+/* line 112, ../sass/screen.scss */
+tr.values td {
+  font-weight: bold;
+  padding: 5px 10px;
+}
+
+/* line 118, ../sass/screen.scss */
+tr:nth-child(odd) td {
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+/* line 122, ../sass/screen.scss */
+tr:first-child td {
+  text-align: center;
+  font-size: 2em;
+  line-height: 1.25;
+  background-color: rgba(255, 255, 255, 0.6);
+  -moz-border-radius-topleft: 20px;
+  -webkit-border-top-left-radius: 20px;
+  border-top-left-radius: 20px;
+  -moz-border-radius-topright: 20px;
+  -webkit-border-top-right-radius: 20px;
+  border-top-right-radius: 20px;
+  padding-top: 5px;
+  font-family: 'Kalam', cursive;
+}
+
+/* line 134, ../sass/screen.scss */
+tr:last-child td {
+  -moz-border-radius-bottomleft: 20px;
+  -webkit-border-bottom-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+  -moz-border-radius-bottomright: 20px;
+  -webkit-border-bottom-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+  padding-bottom: 10px;
+}
+
+/* line 141, ../sass/screen.scss */
+div.linkTextWrapper {
+  padding-top: 20px;
+  color: red;
+  width: 150px;
+  margin: auto;
+}
+
+/* line 150, ../sass/screen.scss */
+span {
+  display: inline-block;
+  color: #000;
+  border: 1px solid white;
+  padding: 0 10px;
+  height: 44px;
+  line-height: 44px;
+  margin: 5px;
+  min-width: 44px;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+  cursor: pointer;
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+/* line 164, ../sass/screen.scss */
+span.active {
+  background-color: rgba(255, 255, 255, 0.4);
+}
+
+@media all and (min-width: 768px) and (min-height: 700px) {
+  /* line 177, ../sass/screen.scss */
+  body {
+    font-size: 1.2em;
+    line-height: 1.375;
+  }
+
+  /* line 183, ../sass/screen.scss */
+  table, .indexContainer {
+    width: 90%;
+    height: 95%;
+    -moz-border-radius: 20px;
+    -webkit-border-radius: 20px;
+    border-radius: 20px;
+  }
+
+  /* line 189, ../sass/screen.scss */
+  .indexContainer {
+    height: auto;
+    padding-bottom: 0;
+  }
+
+  /* line 194, ../sass/screen.scss */
+  tr:first-child td {
+    padding: 10px 0;
+  }
+
+  /* line 198, ../sass/screen.scss */
+  .indexContainer h1 {
+    font-size: 2.5em;
+    line-height: 1.125;
+    margin-top: 20px;
+    color: red;
+  }
+
+  /* line 205, ../sass/screen.scss */
+  .indexContainer p {
+    margin: 10px 0;
+    padding: 0 10px;
+  }
+
+  /* line 210, ../sass/screen.scss */
+  tr.header td {
+    padding: 5px 10px;
+  }
+
+  /* line 214, ../sass/screen.scss */
+  tr.values td {
+    padding: 10px 20px;
+  }
+}
+@media all and (min-width: 1000px) and (min-height: 700px) {
+  /* line 224, ../sass/screen.scss */
+  body {
+    font-size: 1.15em;
+    line-height: 1.375;
+  }
+
+  /* line 229, ../sass/screen.scss */
+  table, .indexContainer {
+    width: 80%;
+    -moz-border-radius: 20px;
+    -webkit-border-radius: 20px;
+    border-radius: 20px;
+  }
+
+  /* line 234, ../sass/screen.scss */
+  tr.header td {
+    padding-left: 15px;
+  }
+
+  /* line 238, ../sass/screen.scss */
+  tr.values td {
+    padding-left: 30px;
+  }
+}
+@media all and (min-width: 1200px) and (max-height: 699px) {
+  /* line 248, ../sass/screen.scss */
+  body {
+    font-size: 1.1em;
+    line-height: 1.375;
+  }
+
+  /* line 253, ../sass/screen.scss */
+  table, .indexContainer {
+    width: 70%;
+  }
+}
+@media all and (min-width: 1200px) and (min-height: 700px) {
+  /* line 264, ../sass/screen.scss */
+  body {
+    font-size: 1.05em;
+    line-height: 1.275;
+  }
+
+  /* line 272, ../sass/screen.scss */
+  span {
+    padding: 5px 40px;
+  }
+
+  /* line 276, ../sass/screen.scss */
+  table, .indexContainer {
+    width: 70%;
+    height: 90%;
+  }
+
+  /* line 281, ../sass/screen.scss */
+  .indexContainer {
+    height: auto;
+  }
+
+  /* line 285, ../sass/screen.scss */
+  tr:first-child td {
+    padding: 20px 0 10px;
+  }
+
+  /* line 289, ../sass/screen.scss */
+  .indexContainer h1 {
+    font-size: 3em;
+    line-height: 1.05;
+  }
+
+  /* line 294, ../sass/screen.scss */
+  .indexContainer p {
+    margin: 20px 0;
+  }
+
+  /* line 298, ../sass/screen.scss */
+  tr.header td {
+    padding-left: 20px;
+  }
+
+  /* line 302, ../sass/screen.scss */
+  tr.values td {
+    padding-left: 40px;
+  }
+}
+@media all and (min-width: 1600px) {
+  /* line 312, ../sass/screen.scss */
+  body {
+    font-size: 1.3em;
+    line-height: 1.275;
+  }
+
+  /* line 321, ../sass/screen.scss */
+  span {
+    padding: 10px 40px;
+  }
+}
