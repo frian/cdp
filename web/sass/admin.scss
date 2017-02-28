@@ -136,6 +136,7 @@ table.show td {
 }
 
 @media screen and (min-width: 700px) {
+    
     .mainContainer {
         display: inline-block;
         font-size: 1.5em;
@@ -149,7 +150,7 @@ table.show td {
 @media screen and (min-width: 1200px) {
 
     form {
-        font-size: 1.2em;
+        // font-size: 1.2em;
     }
 
     input {

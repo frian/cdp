@@ -211,39 +211,34 @@ table.show td {
 }
 
 @media screen and (min-width: 700px) {
-  /* line 139, ../sass/admin.scss */
+  /* line 140, ../sass/admin.scss */
   .mainContainer {
     display: inline-block;
     font-size: 1.5em;
   }
 
-  /* line 144, ../sass/admin.scss */
+  /* line 145, ../sass/admin.scss */
   table.show td, table.show th {
     padding: 10px 50px 10px 10px;
   }
 }
 @media screen and (min-width: 1200px) {
-  /* line 151, ../sass/admin.scss */
-  form {
-    font-size: 1.2em;
-  }
-
-  /* line 155, ../sass/admin.scss */
+  /* line 156, ../sass/admin.scss */
   input {
     font-size: 1em;
   }
 
-  /* line 159, ../sass/admin.scss */
+  /* line 160, ../sass/admin.scss */
   label {
     width: 30%;
   }
 
-  /* line 163, ../sass/admin.scss */
+  /* line 164, ../sass/admin.scss */
   input[type=radio] + label, input[type=checkbox] + label {
     width: auto;
   }
 
-  /* line 167, ../sass/admin.scss */
+  /* line 168, ../sass/admin.scss */
   #appbundle_plant_soil, #appbundle_plant_watering {
     display: inline-block;
   }
