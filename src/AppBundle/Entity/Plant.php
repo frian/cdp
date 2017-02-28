@@ -3,6 +3,7 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Plant
@@ -31,6 +32,10 @@ class Plant
     /**
      * @var int
      *
+     * @Assert\Count(
+     *      min = 1,
+     *      minMessage = "You must specify at least one soil property",
+     * )
      * @ORM\ManyToMany(targetEntity="Soil")
      */
     private $soil;
@@ -136,14 +141,16 @@ class Plant
     /**
      * @var int
      *
-     * @ORM\Column(name="friendlyPlants", type="integer", nullable=true)
+     * @ORM\ManyToMany(targetEntity="Plant")
+     * @ORM\JoinTable(name="plant_friandlyplants")
      */
     private $friendlyPlants;
 
     /**
      * @var int
      *
-     * @ORM\Column(name="enemyPlants", type="integer", nullable=true)
+     * @ORM\ManyToMany(targetEntity="Plant")
+     * @ORM\JoinTable(name="plant_enemyplants")
      */
     private $enemyPlants;
 
@@ -155,10 +162,24 @@ class Plant
     private $tips;
 
 
+    public function __toString() {
+        return $this->name;
+    }
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->soil = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->friendlyPlants = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->enemyPlants = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
     /**
      * Get id
      *
-     * @return int
+     * @return integer
      */
     public function getId()
     {
@@ -170,7 +191,7 @@ class Plant
      *
      * @param string $name
      *
-     * @return plant
+     * @return Plant
      */
     public function setName($name)
     {
@@ -190,35 +211,11 @@ class Plant
     }
 
     /**
-     * Set soil
-     *
-     * @param integer $soil
-     *
-     * @return plant
-     */
-    public function setSoil($soil)
-    {
-        $this->soil = $soil;
-
-        return $this;
-    }
-
-    /**
-     * Get soil
-     *
-     * @return int
-     */
-    public function getSoil()
-    {
-        return $this->soil;
-    }
-
-    /**
      * Set seedsQuantity
      *
      * @param integer $seedsQuantity
      *
-     * @return plant
+     * @return Plant
      */
     public function setSeedsQuantity($seedsQuantity)
     {
@@ -230,7 +227,7 @@ class Plant
     /**
      * Get seedsQuantity
      *
-     * @return int
+     * @return integer
      */
     public function getSeedsQuantity()
     {
@@ -238,35 +235,11 @@ class Plant
     }
 
     /**
-     * Set seedsQuantityUnit
-     *
-     * @param integer $seedsQuantityUnit
-     *
-     * @return plant
-     */
-    public function setSeedsQuantityUnit($seedsQuantityUnit)
-    {
-        $this->seedsQuantityUnit = $seedsQuantityUnit;
-
-        return $this;
-    }
-
-    /**
-     * Get seedsQuantityUnit
-     *
-     * @return int
-     */
-    public function getSeedsQuantityUnit()
-    {
-        return $this->seedsQuantityUnit;
-    }
-
-    /**
      * Set seedingDepth
      *
      * @param integer $seedingDepth
      *
-     * @return plant
+     * @return Plant
      */
     public function setSeedingDepth($seedingDepth)
     {
@@ -278,7 +251,7 @@ class Plant
     /**
      * Get seedingDepth
      *
-     * @return int
+     * @return integer
      */
     public function getSeedingDepth()
     {
@@ -290,7 +263,7 @@ class Plant
      *
      * @param integer $lineDistance
      *
-     * @return plant
+     * @return Plant
      */
     public function setLineDistance($lineDistance)
     {
@@ -302,7 +275,7 @@ class Plant
     /**
      * Get lineDistance
      *
-     * @return int
+     * @return integer
      */
     public function getLineDistance()
     {
@@ -314,7 +287,7 @@ class Plant
      *
      * @param integer $lineInterval
      *
-     * @return plant
+     * @return Plant
      */
     public function setLineInterval($lineInterval)
     {
@@ -326,7 +299,7 @@ class Plant
     /**
      * Get lineInterval
      *
-     * @return int
+     * @return integer
      */
     public function getLineInterval()
     {
@@ -334,35 +307,11 @@ class Plant
     }
 
     /**
-     * Set watering
-     *
-     * @param integer $watering
-     *
-     * @return plant
-     */
-    public function setWatering($watering)
-    {
-        $this->watering = $watering;
-
-        return $this;
-    }
-
-    /**
-     * Get watering
-     *
-     * @return int
-     */
-    public function getWatering()
-    {
-        return $this->watering;
-    }
-
-    /**
      * Set underCoverStart
      *
      * @param integer $underCoverStart
      *
-     * @return plant
+     * @return Plant
      */
     public function setUnderCoverStart($underCoverStart)
     {
@@ -374,7 +323,7 @@ class Plant
     /**
      * Get underCoverStart
      *
-     * @return int
+     * @return integer
      */
     public function getUnderCoverStart()
     {
@@ -386,7 +335,7 @@ class Plant
      *
      * @param integer $underCoverEnd
      *
-     * @return plant
+     * @return Plant
      */
     public function setUnderCoverEnd($underCoverEnd)
     {
@@ -398,7 +347,7 @@ class Plant
     /**
      * Get underCoverEnd
      *
-     * @return int
+     * @return integer
      */
     public function getUnderCoverEnd()
     {
@@ -410,7 +359,7 @@ class Plant
      *
      * @param integer $inGroundStart
      *
-     * @return plant
+     * @return Plant
      */
     public function setInGroundStart($inGroundStart)
     {
@@ -422,7 +371,7 @@ class Plant
     /**
      * Get inGroundStart
      *
-     * @return int
+     * @return integer
      */
     public function getInGroundStart()
     {
@@ -434,7 +383,7 @@ class Plant
      *
      * @param integer $inGroundEnd
      *
-     * @return plant
+     * @return Plant
      */
     public function setInGroundEnd($inGroundEnd)
     {
@@ -446,7 +395,7 @@ class Plant
     /**
      * Get inGroundEnd
      *
-     * @return int
+     * @return integer
      */
     public function getInGroundEnd()
     {
@@ -458,7 +407,7 @@ class Plant
      *
      * @param integer $plantingStart
      *
-     * @return plant
+     * @return Plant
      */
     public function setPlantingStart($plantingStart)
     {
@@ -470,7 +419,7 @@ class Plant
     /**
      * Get plantingStart
      *
-     * @return int
+     * @return integer
      */
     public function getPlantingStart()
     {
@@ -482,7 +431,7 @@ class Plant
      *
      * @param integer $plantingEnd
      *
-     * @return plant
+     * @return Plant
      */
     public function setPlantingEnd($plantingEnd)
     {
@@ -494,7 +443,7 @@ class Plant
     /**
      * Get plantingEnd
      *
-     * @return int
+     * @return integer
      */
     public function getPlantingEnd()
     {
@@ -506,7 +455,7 @@ class Plant
      *
      * @param integer $harverstStart
      *
-     * @return plant
+     * @return Plant
      */
     public function setHarverstStart($harverstStart)
     {
@@ -518,7 +467,7 @@ class Plant
     /**
      * Get harverstStart
      *
-     * @return int
+     * @return integer
      */
     public function getHarverstStart()
     {
@@ -530,7 +479,7 @@ class Plant
      *
      * @param integer $harvestEnd
      *
-     * @return plant
+     * @return Plant
      */
     public function setHarvestEnd($harvestEnd)
     {
@@ -542,7 +491,7 @@ class Plant
     /**
      * Get harvestEnd
      *
-     * @return int
+     * @return integer
      */
     public function getHarvestEnd()
     {
@@ -550,59 +499,11 @@ class Plant
     }
 
     /**
-     * Set friendlyPlants
-     *
-     * @param integer $friendlyPlants
-     *
-     * @return plant
-     */
-    public function setFriendlyPlants($friendlyPlants)
-    {
-        $this->friendlyPlants = $friendlyPlants;
-
-        return $this;
-    }
-
-    /**
-     * Get friendlyPlants
-     *
-     * @return int
-     */
-    public function getFriendlyPlants()
-    {
-        return $this->friendlyPlants;
-    }
-
-    /**
-     * Set enemyPlants
-     *
-     * @param integer $enemyPlants
-     *
-     * @return plant
-     */
-    public function setEnemyPlants($enemyPlants)
-    {
-        $this->enemyPlants = $enemyPlants;
-
-        return $this;
-    }
-
-    /**
-     * Get enemyPlants
-     *
-     * @return int
-     */
-    public function getEnemyPlants()
-    {
-        return $this->enemyPlants;
-    }
-
-    /**
      * Set tips
      *
      * @param integer $tips
      *
-     * @return plant
+     * @return Plant
      */
     public function setTips($tips)
     {
@@ -614,10 +515,160 @@ class Plant
     /**
      * Get tips
      *
-     * @return int
+     * @return integer
      */
     public function getTips()
     {
         return $this->tips;
+    }
+
+    /**
+     * Add soil
+     *
+     * @param \AppBundle\Entity\Soil $soil
+     *
+     * @return Plant
+     */
+    public function addSoil(\AppBundle\Entity\Soil $soil)
+    {
+        $this->soil[] = $soil;
+
+        return $this;
+    }
+
+    /**
+     * Remove soil
+     *
+     * @param \AppBundle\Entity\Soil $soil
+     */
+    public function removeSoil(\AppBundle\Entity\Soil $soil)
+    {
+        $this->soil->removeElement($soil);
+    }
+
+    /**
+     * Get soil
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getSoil()
+    {
+        return $this->soil;
+    }
+
+    /**
+     * Set seedsQuantityUnit
+     *
+     * @param \AppBundle\Entity\SeedsQuantityUnit $seedsQuantityUnit
+     *
+     * @return Plant
+     */
+    public function setSeedsQuantityUnit(\AppBundle\Entity\SeedsQuantityUnit $seedsQuantityUnit = null)
+    {
+        $this->seedsQuantityUnit = $seedsQuantityUnit;
+
+        return $this;
+    }
+
+    /**
+     * Get seedsQuantityUnit
+     *
+     * @return \AppBundle\Entity\SeedsQuantityUnit
+     */
+    public function getSeedsQuantityUnit()
+    {
+        return $this->seedsQuantityUnit;
+    }
+
+    /**
+     * Set watering
+     *
+     * @param \AppBundle\Entity\Watering $watering
+     *
+     * @return Plant
+     */
+    public function setWatering(\AppBundle\Entity\Watering $watering = null)
+    {
+        $this->watering = $watering;
+
+        return $this;
+    }
+
+    /**
+     * Get watering
+     *
+     * @return \AppBundle\Entity\Watering
+     */
+    public function getWatering()
+    {
+        return $this->watering;
+    }
+
+    /**
+     * Add friendlyPlant
+     *
+     * @param \AppBundle\Entity\Plant $friendlyPlant
+     *
+     * @return Plant
+     */
+    public function addFriendlyPlant(\AppBundle\Entity\Plant $friendlyPlant)
+    {
+        $this->friendlyPlants[] = $friendlyPlant;
+
+        return $this;
+    }
+
+    /**
+     * Remove friendlyPlant
+     *
+     * @param \AppBundle\Entity\Plant $friendlyPlant
+     */
+    public function removeFriendlyPlant(\AppBundle\Entity\Plant $friendlyPlant)
+    {
+        $this->friendlyPlants->removeElement($friendlyPlant);
+    }
+
+    /**
+     * Get friendlyPlants
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getFriendlyPlants()
+    {
+        return $this->friendlyPlants;
+    }
+
+    /**
+     * Add enemyPlant
+     *
+     * @param \AppBundle\Entity\Plant $enemyPlant
+     *
+     * @return Plant
+     */
+    public function addEnemyPlant(\AppBundle\Entity\Plant $enemyPlant)
+    {
+        $this->enemyPlants[] = $enemyPlant;
+
+        return $this;
+    }
+
+    /**
+     * Remove enemyPlant
+     *
+     * @param \AppBundle\Entity\Plant $enemyPlant
+     */
+    public function removeEnemyPlant(\AppBundle\Entity\Plant $enemyPlant)
+    {
+        $this->enemyPlants->removeElement($enemyPlant);
+    }
+
+    /**
+     * Get enemyPlants
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getEnemyPlants()
+    {
+        return $this->enemyPlants;
     }
 }
