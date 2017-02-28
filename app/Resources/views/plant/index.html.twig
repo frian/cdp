@@ -10,19 +10,14 @@
                 <th>Name</th>
                 <th>Soil</th>
                 <th>Seedsquantity</th>
-                <th>Seedsquantityunit</th>
                 <th>Seedingdepth</th>
                 <th>Linedistance</th>
                 <th>Lineinterval</th>
                 <th>Watering</th>
                 <th>Undercoverstart</th>
-                <th>Undercoverend</th>
                 <th>Ingroundstart</th>
-                <th>Ingroundend</th>
                 <th>Plantingstart</th>
-                <th>Plantingend</th>
                 <th>Harverststart</th>
-                <th>Harvestend</th>
                 <th>Friendlyplants</th>
                 <th>Enemyplants</th>
                 <th>Tips</th>
@@ -34,23 +29,51 @@
             <tr>
                 <td><a href="{{ path('admin_plant_show', { 'id': plant.id }) }}">{{ plant.id }}</a></td>
                 <td>{{ plant.name }}</td>
-                <td>{{ plant.soil }}</td>
-                <td>{{ plant.seedsQuantity }}</td>
-                <td>{{ plant.seedsQuantityUnit }}</td>
-                <td>{{ plant.seedingDepth }}</td>
-                <td>{{ plant.lineDistance }}</td>
-                <td>{{ plant.lineInterval }}</td>
+                <td>
+                    {% for soil in plant.soil %}
+                        {{ soil }}
+                        {% if not loop.last %}
+                            ,
+                        {% endif %}
+                    {% endfor %}
+                </td>
+                <td>{{ plant.seedsQuantity }} {{ plant.seedsQuantityUnit }}</td>
+                <td>{{ plant.seedingDepth }} cm</td>
+                <td>{{ plant.lineDistance }} cm</td>
+                <td>{{ plant.lineInterval }} cm</td>
                 <td>{{ plant.watering }}</td>
-                <td>{{ plant.underCoverStart }}</td>
-                <td>{{ plant.underCoverEnd }}</td>
-                <td>{{ plant.inGroundStart }}</td>
-                <td>{{ plant.inGroundEnd }}</td>
-                <td>{{ plant.plantingStart }}</td>
-                <td>{{ plant.plantingEnd }}</td>
-                <td>{{ plant.harverstStart }}</td>
-                <td>{{ plant.harvestEnd }}</td>
-                <td>{{ plant.friendlyPlants }}</td>
-                <td>{{ plant.enemyPlants }}</td>
+                <td>
+                    {{ date('2000-' ~ plant.underCoverStart ~ '-1')|date("M") }} -
+                    {{ date('2000-' ~ plant.underCoverEnd ~ '-1')|date("M") }}
+                </td>
+                <td>
+                    {{ date('2000-' ~ plant.inGroundStart ~ '-1')|date("M") }} -
+                    {{ date('2000-' ~ plant.inGroundEnd ~ '-1')|date("M") }}
+                </td>
+                <td>
+                    {{ date('2000-' ~ plant.plantingStart ~ '-1')|date("M") }} -
+                    {{ date('2000-' ~ plant.plantingEnd ~ '-1')|date("M") }}
+                </td>
+                <td>
+                    {{ date('2000-' ~ plant.harverstStart ~ '-1')|date("M") }} -
+                    {{ date('2000-' ~ plant.harvestEnd ~ '-1')|date("M") }}
+                </td>
+                <td>
+                    {% for plant in plant.friendlyPlants %}
+                        {{ plant }}
+                        {% if not loop.last %}
+                            ,
+                        {% endif %}
+                    {% endfor %}
+                </td>
+                <td>
+                    {% for plant in plant.enemyPlants %}
+                        {{ plant }}
+                        {% if not loop.last %}
+                            ,
+                        {% endif %}
+                    {% endfor %}
+                </td>
                 <td>{{ plant.tips }}</td>
                 <td>
                     <ul>

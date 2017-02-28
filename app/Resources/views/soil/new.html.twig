@@ -1,6 +1,8 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
+
+<div class="mainContainer">
     <h1>Soil creation</h1>
 
     {{ form_start(form) }}
@@ -13,4 +15,5 @@
             <a href="{{ path('admin_soil_index') }}">Back to the list</a>
         </li>
     </ul>
+</div>
 {% endblock %}

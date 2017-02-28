@@ -1,0 +1,150 @@
+
+
+@import url('https://fonts.googleapis.com/css?family=Muli:400,600');
+
+@import "base";
+
+html {
+    background-color: #222;
+    color: #eee;
+}
+
+body {
+    text-align: center;
+    font-size: 16px;
+    font-family: 'Muli', sans-serif;
+}
+
+a {
+    color: white;
+}
+
+.mainContainer {
+    text-align: left;
+    display: inline-block;
+    @include debug(red, 5);
+    margin: auto;
+}
+
+
+
+h1 {
+    font-family: 'Muli', sans-serif;
+    font-size: 3em;
+    text-align: center;
+    padding: 20px 0;
+    border: 2px solid white;
+}
+
+
+label {
+    // color: yellow;
+    display: inline-block;
+    padding: 10px;
+
+    // border: 1px solid red;
+}
+
+
+
+input[type=radio] + label, input[type=checkbox] + label {
+    display: inline-block;
+    padding: 10px 20px;
+    color: #ccc;
+    border: 2px solid transparent;
+    // @include debug(green);
+}
+
+
+input[type=radio]:checked + label, input[type=checkbox]:checked + label {
+
+  color: #eee;
+  border-color: white;
+  @include border-radius(10px);
+}
+
+
+
+form {
+    font-family: 'Muli', sans-serif;
+    font-weight: 400;
+}
+
+input {
+    font-family: 'Muli', sans-serif;
+    font-weight: 600;
+}
+
+
+input[type=text], input[type=number], select {
+    height: 40px;
+    padding: 0 10px;
+    box-sizing: border-box;
+}
+
+input[type=text], input[type=number] {
+    color: #eee;
+    background-color: #111;
+    border: 1px solid #555;
+}
+
+input[type=text] {
+    width: 50%;
+}
+
+input[type=number] {
+    width: 100px;
+    text-align: right;
+    padding-right: 15px;
+    -moz-appearance:textfield;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+
+select {
+    display: inline-block;
+    position: relative;
+    top: -4px;
+    // border: 2px solid yellow;
+}
+
+#appbundle_plant > div {
+    @include debug(yellow, 1);
+    padding: 20px 0;
+}
+
+
+table {
+    margin: auto;
+}
+
+td, th {
+    @include debug(white);
+    padding: 5px 10px;
+}
+
+@media screen and (min-width: 1200px) {
+
+    form {
+        font-size: 1.4em;
+    }
+
+    input {
+        font-size: 1em;
+    }
+
+    label {
+        width: 30%;
+    }
+
+    input[type=radio] + label, input[type=checkbox] + label {
+        width: auto;
+    }
+
+    #appbundle_plant_soil, #appbundle_plant_watering {
+        display: inline-block;
+    }
+}

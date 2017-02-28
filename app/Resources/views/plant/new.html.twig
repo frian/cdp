@@ -1,11 +1,114 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Plant creation</h1>
+<div class="mainContainer">
+
+    <h1>New plant</h1>
 
     {{ form_start(form) }}
-        {{ form_widget(form) }}
-        <input type="submit" value="Create" />
+
+    <div id="appbundle_plant">
+        <div>
+            {{ form_label(form.name) }}
+            {{ form_widget(form.name) }}
+        </div>
+
+        <div>
+            {{ form_errors(form.soil) }}
+            {{ form_label(form.soil) }}
+            {{ form_widget(form.soil) }}
+        </div>
+
+        <div>
+            {{ form_label(form.seedsQuantity) }}
+            {{ form_widget(form.seedsQuantity) }}
+            {{ form_widget(form.seedsQuantityUnit) }}
+        </div>
+
+        <div>
+            {{ form_label(form.seedingDepth) }}
+            {{ form_widget(form.seedingDepth) }} cm
+        </div>
+
+        <div>
+            {{ form_label(form.lineDistance) }}
+            {{ form_widget(form.lineDistance) }} cm
+        </div>
+
+        <div>
+            {{ form_label(form.lineInterval) }}
+            {{ form_widget(form.lineInterval) }} cm
+        </div>
+
+        <div>
+            {{ form_label(form.watering) }}
+            {{ form_widget(form.watering) }}
+        </div>
+
+        <div>
+            {{ form_label(form.underCoverStart) }}
+            {{ form_widget(form.underCoverStart) }}
+        </div>
+
+        <div>
+            {{ form_label(form.underCoverEnd) }}
+            {{ form_widget(form.underCoverEnd) }}
+        </div>
+
+        <div>
+            {{ form_label(form.inGroundStart) }}
+            {{ form_widget(form.inGroundStart) }}
+        </div>
+
+        <div>
+            {{ form_label(form.inGroundEnd) }}
+            {{ form_widget(form.inGroundEnd) }}
+        </div>
+
+        <div>
+            {{ form_label(form.plantingStart) }}
+            {{ form_widget(form.plantingStart) }}
+        </div>
+
+        <div>
+            {{ form_label(form.plantingEnd) }}
+            {{ form_widget(form.plantingEnd) }}
+        </div>
+
+        <div>
+            {{ form_label(form.harverstStart) }}
+            {{ form_widget(form.harverstStart) }}
+        </div>
+
+        <div>
+            {{ form_label(form.harvestEnd) }}
+            {{ form_widget(form.harvestEnd) }}
+        </div>
+
+        <div>
+            {{ form_label(form.friendlyPlants) }}
+            {{ form_widget(form.friendlyPlants) }}
+        </div>
+
+        <div>
+            {{ form_label(form.enemyPlants) }}
+            {{ form_widget(form.enemyPlants) }}
+        </div>
+
+        <div>
+            {{ form_label(form.tips) }}
+            {{ form_widget(form.tips) }}
+        </div>
+
+        <div class="">
+
+            {{ form_errors(form.soil) }}
+
+            <input type="submit" value="Create" />
+        </div>
+
+    </div>
+
     {{ form_end(form) }}
 
     <ul>
@@ -13,4 +116,5 @@
             <a href="{{ path('admin_plant_index') }}">Back to the list</a>
         </li>
     </ul>
+</div>
 {% endblock %}

@@ -88,7 +88,7 @@ class PlantController extends Controller
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('admin_plant_edit', array('id' => $plant->getId()));
+            return $this->redirectToRoute('admin_plant_show', array('id' => $plant->getId()));
         }
 
         return $this->render('plant/edit.html.twig', array(

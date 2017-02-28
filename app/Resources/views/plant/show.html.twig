@@ -15,27 +15,30 @@
             </tr>
             <tr>
                 <th>Soil</th>
-                <td>{{ plant.soil }}</td>
+                <td>
+                    {% for soil in plant.soil %}
+                        {{ soil }}
+                        {% if not loop.last %}
+                            ,
+                        {% endif %}
+                    {% endfor %}
+                </td>
             </tr>
             <tr>
                 <th>Seedsquantity</th>
-                <td>{{ plant.seedsQuantity }}</td>
-            </tr>
-            <tr>
-                <th>Seedsquantityunit</th>
-                <td>{{ plant.seedsQuantityUnit }}</td>
+                <td>{{ plant.seedsQuantity }} {{ plant.seedsQuantityUnit }}</td>
             </tr>
             <tr>
                 <th>Seedingdepth</th>
-                <td>{{ plant.seedingDepth }}</td>
+                <td>{{ plant.seedingDepth }} cm</td>
             </tr>
             <tr>
                 <th>Linedistance</th>
-                <td>{{ plant.lineDistance }}</td>
+                <td>{{ plant.lineDistance }} cm</td>
             </tr>
             <tr>
                 <th>Lineinterval</th>
-                <td>{{ plant.lineInterval }}</td>
+                <td>{{ plant.lineInterval }} cm</td>
             </tr>
             <tr>
                 <th>Watering</th>
@@ -43,43 +46,53 @@
             </tr>
             <tr>
                 <th>Undercoverstart</th>
-                <td>{{ plant.underCoverStart }}</td>
-            </tr>
-            <tr>
-                <th>Undercoverend</th>
-                <td>{{ plant.underCoverEnd }}</td>
+                <td>
+                    {{ date('2000-' ~ plant.underCoverStart ~ '-1')|date("M") }} -
+                    {{ date('2000-' ~ plant.underCoverEnd ~ '-1')|date("M") }}
+                </td>
             </tr>
             <tr>
                 <th>Ingroundstart</th>
-                <td>{{ plant.inGroundStart }}</td>
-            </tr>
-            <tr>
-                <th>Ingroundend</th>
-                <td>{{ plant.inGroundEnd }}</td>
+                <td>
+                    {{ date('2000-' ~ plant.inGroundStart ~ '-1')|date("M") }} -
+                    {{ date('2000-' ~ plant.inGroundEnd ~ '-1')|date("M") }}
+                </td>
             </tr>
             <tr>
                 <th>Plantingstart</th>
-                <td>{{ plant.plantingStart }}</td>
-            </tr>
-            <tr>
-                <th>Plantingend</th>
-                <td>{{ plant.plantingEnd }}</td>
+                <td>
+                    {{ date('2000-' ~ plant.plantingStart ~ '-1')|date("M") }} -
+                    {{ date('2000-' ~ plant.plantingEnd ~ '-1')|date("M") }}
+                </td>
             </tr>
             <tr>
                 <th>Harverststart</th>
-                <td>{{ plant.harverstStart }}</td>
-            </tr>
-            <tr>
-                <th>Harvestend</th>
-                <td>{{ plant.harvestEnd }}</td>
+                <td>
+                    {{ date('2000-' ~ plant.harverstStart ~ '-1')|date("M") }} -
+                    {{ date('2000-' ~ plant.harvestEnd ~ '-1')|date("M") }}
+                </td>
             </tr>
             <tr>
                 <th>Friendlyplants</th>
-                <td>{{ plant.friendlyPlants }}</td>
+                <td>
+                    {% for plant in plant.friendlyPlants %}
+                        {{ plant }}
+                        {% if not loop.last %}
+                            ,
+                        {% endif %}
+                    {% endfor %}
+                </td>
             </tr>
             <tr>
                 <th>Enemyplants</th>
-                <td>{{ plant.enemyPlants }}</td>
+                <td>
+                    {% for plant in plant.enemyPlants %}
+                        {{ plant }}
+                        {% if not loop.last %}
+                            ,
+                        {% endif %}
+                    {% endfor %}
+                </td>
             </tr>
             <tr>
                 <th>Tips</th>

@@ -31,7 +31,7 @@ class Plant
     /**
      * @var int
      *
-     * @ORM\ManyToOne(targetEntity="Soil")
+     * @ORM\ManyToMany(targetEntity="Soil")
      */
     private $soil;
 
@@ -73,7 +73,7 @@ class Plant
     /**
      * @var int
      *
-     * @ORM\Column(name="watering", type="integer")
+     * @ORM\ManyToOne(targetEntity="Watering")
      */
     private $watering;
 
