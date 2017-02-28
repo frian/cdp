@@ -14,10 +14,12 @@
                 <th>Linedistance</th>
                 <th>Lineinterval</th>
                 <th>Watering</th>
+                <th>TimeToSprout</th>
+                <th>TimeToHarvest</th>
                 <th>Undercoverstart</th>
                 <th>Ingroundstart</th>
                 <th>Plantingstart</th>
-                <th>Harverststart</th>
+                <th>Harveststart</th>
                 <th>Friendlyplants</th>
                 <th>Enemyplants</th>
                 <th>Tips</th>
@@ -42,20 +44,34 @@
                 <td>{{ plant.lineDistance }} cm</td>
                 <td>{{ plant.lineInterval }} cm</td>
                 <td>{{ plant.watering }}</td>
+                <td>{{ plant.timeToSprout }} j</td>
+                <td>{{ plant.timeToHarvest }} j</td>
                 <td>
-                    {{ date('2000-' ~ plant.underCoverStart ~ '-1')|date("M") }} -
-                    {{ date('2000-' ~ plant.underCoverEnd ~ '-1')|date("M") }}
+                    {% if plant.underCoverStart %}
+                        {{ date('2000-' ~ plant.underCoverStart ~ '-1')|date("M") }} -
+                        {{ date('2000-' ~ plant.underCoverEnd ~ '-1')|date("M") }}
+                    {% else %}
+                            -
+                    {% endif %}
                 </td>
                 <td>
-                    {{ date('2000-' ~ plant.inGroundStart ~ '-1')|date("M") }} -
-                    {{ date('2000-' ~ plant.inGroundEnd ~ '-1')|date("M") }}
+                    {% if plant.inGroundStart %}
+                        {{ date('2000-' ~ plant.inGroundStart ~ '-1')|date("M") }} -
+                        {{ date('2000-' ~ plant.inGroundEnd ~ '-1')|date("M") }}
+                    {% else %}
+                        -
+                    {% endif %}
                 </td>
                 <td>
-                    {{ date('2000-' ~ plant.plantingStart ~ '-1')|date("M") }} -
-                    {{ date('2000-' ~ plant.plantingEnd ~ '-1')|date("M") }}
+                    {% if plant.plantingStart %}
+                        {{ date('2000-' ~ plant.plantingStart ~ '-1')|date("M") }} -
+                        {{ date('2000-' ~ plant.plantingEnd ~ '-1')|date("M") }}
+                    {% else %}
+                        -
+                    {% endif %}
                 </td>
                 <td>
-                    {{ date('2000-' ~ plant.harverstStart ~ '-1')|date("M") }} -
+                    {{ date('2000-' ~ plant.harvestStart ~ '-1')|date("M") }} -
                     {{ date('2000-' ~ plant.harvestEnd ~ '-1')|date("M") }}
                 </td>
                 <td>

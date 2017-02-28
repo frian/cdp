@@ -55,28 +55,40 @@
             <tr>
                 <th>Undercoverstart</th>
                 <td>
+                {% if plant.underCoverStart %}
                     {{ date('2000-' ~ plant.underCoverStart ~ '-1')|date("M") }} -
                     {{ date('2000-' ~ plant.underCoverEnd ~ '-1')|date("M") }}
+                {% else %}
+                        -
+                {% endif %}
                 </td>
             </tr>
             <tr>
                 <th>Ingroundstart</th>
                 <td>
-                    {{ date('2000-' ~ plant.inGroundStart ~ '-1')|date("M") }} -
-                    {{ date('2000-' ~ plant.inGroundEnd ~ '-1')|date("M") }}
+                    {% if plant.inGroundStart %}
+                        {{ date('2000-' ~ plant.inGroundStart ~ '-1')|date("M") }} -
+                        {{ date('2000-' ~ plant.inGroundEnd ~ '-1')|date("M") }}
+                    {% else %}
+                        -
+                    {% endif %}
                 </td>
             </tr>
             <tr>
                 <th>Plantingstart</th>
                 <td>
-                    {{ date('2000-' ~ plant.plantingStart ~ '-1')|date("M") }} -
-                    {{ date('2000-' ~ plant.plantingEnd ~ '-1')|date("M") }}
+                    {% if plant.plantingStart %}
+                        {{ date('2000-' ~ plant.plantingStart ~ '-1')|date("M") }} -
+                        {{ date('2000-' ~ plant.plantingEnd ~ '-1')|date("M") }}
+                    {% else %}
+                        -
+                    {% endif %}
                 </td>
             </tr>
             <tr>
-                <th>Harverststart</th>
+                <th>Harveststart</th>
                 <td>
-                    {{ date('2000-' ~ plant.harverstStart ~ '-1')|date("M") }} -
+                    {{ date('2000-' ~ plant.harvestStart ~ '-1')|date("M") }} -
                     {{ date('2000-' ~ plant.harvestEnd ~ '-1')|date("M") }}
                 </td>
             </tr>
