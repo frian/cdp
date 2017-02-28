@@ -70,7 +70,7 @@ class PlantType extends AbstractType
                 'choices' => $months,
                 'expanded' => true
             ))
-            ->add('harverstStart', ChoiceType::class, array(
+            ->add('harvestStart', ChoiceType::class, array(
                 'choices' => $months,
                 'expanded' => true
             ))

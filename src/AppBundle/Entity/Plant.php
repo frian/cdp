@@ -127,9 +127,9 @@ class Plant
     /**
      * @var int
      *
-     * @ORM\Column(name="harverstStart", type="integer")
+     * @ORM\Column(name="harvestStart", type="integer")
      */
-    private $harverstStart;
+    private $harvestStart;
 
     /**
      * @var int
@@ -465,27 +465,27 @@ class Plant
     }
 
     /**
-     * Set harverstStart
+     * Set harvestStart
      *
-     * @param integer $harverstStart
+     * @param integer $harvestStart
      *
      * @return Plant
      */
-    public function setHarverstStart($harverstStart)
+    public function setHarvestStart($harvestStart)
     {
-        $this->harverstStart = $harverstStart;
+        $this->harvestStart = $harvestStart;
 
         return $this;
     }
 
     /**
-     * Get harverstStart
+     * Get harvestStart
      *
      * @return integer
      */
-    public function getHarverstStart()
+    public function getHarvestStart()
     {
-        return $this->harverstStart;
+        return $this->harvestStart;
     }
 
     /**
