@@ -1,9 +1,11 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
+<div class="mainContainer">
+
     <h1>Plant</h1>
 
-    <table>
+    <table class="show">
         <tbody>
             <tr>
                 <th>Id</th>
@@ -118,20 +120,20 @@
                 <th>Tips</th>
                 <td>{{ plant.tips }}</td>
             </tr>
+            <tr>
+                <td class="control" colspan="2">
+                    <a href="{{ path('admin_plant_index') }}">Back to the list</a>
+                    <a href="{{ path('admin_plant_edit', { 'id': plant.id }) }}">Edit</a>
+                </td>
+            </tr>
+            <tr>
+                <td class="control" colspan="2">
+                    {{ form_start(delete_form) }}
+                        <input type="submit" value="Delete">
+                    {{ form_end(delete_form) }}
+                </td>
+            </tr>
         </tbody>
     </table>
-
-    <ul>
-        <li>
-            <a href="{{ path('admin_plant_index') }}">Back to the list</a>
-        </li>
-        <li>
-            <a href="{{ path('admin_plant_edit', { 'id': plant.id }) }}">Edit</a>
-        </li>
-        <li>
-            {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
-            {{ form_end(delete_form) }}
-        </li>
-    </ul>
+</div>
 {% endblock %}

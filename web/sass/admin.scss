@@ -21,7 +21,7 @@ a {
 
 .mainContainer {
     text-align: left;
-    display: inline-block;
+    // display: inline-block;
     @include debug(red, 5);
     margin: auto;
 }
@@ -38,11 +38,8 @@ h1 {
 
 
 label {
-    // color: yellow;
     display: inline-block;
     padding: 10px;
-
-    // border: 1px solid red;
 }
 
 
@@ -52,7 +49,6 @@ input[type=radio] + label, input[type=checkbox] + label {
     padding: 10px 20px;
     color: #ccc;
     border: 2px solid transparent;
-    // @include debug(green);
 }
 
 
@@ -121,15 +117,39 @@ table {
     margin: auto;
 }
 
+table.show {
+    width: 100%;
+}
+
 td, th {
     @include debug(white);
     padding: 5px 10px;
 }
 
+.control {
+    text-align: center;
+    padding: 10px!important;
+}
+
+table.show td {
+    font-weight: 600;
+}
+
+@media screen and (min-width: 700px) {
+    .mainContainer {
+        display: inline-block;
+        font-size: 1.5em;
+    }
+
+    table.show td, table.show th {
+        padding: 10px 50px 10px 10px;
+    }
+}
+
 @media screen and (min-width: 1200px) {
 
     form {
-        font-size: 1.4em;
+        font-size: 1.2em;
     }
 
     input {

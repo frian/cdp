@@ -1,21 +1,128 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
+<div class="mainContainer">
+
     <h1>Plant edit</h1>
 
     {{ form_start(edit_form) }}
-        {{ form_widget(edit_form) }}
-        <input type="submit" value="Edit" />
+
+    <div id="appbundle_plant">
+        <div>
+            {{ form_label(edit_form.name) }}
+            {{ form_widget(edit_form.name) }}
+        </div>
+
+        <div>
+            {{ form_errors(edit_form.soil) }}
+            {{ form_label(edit_form.soil) }}
+            {{ form_widget(edit_form.soil) }}
+        </div>
+
+        <div>
+            {{ form_label(edit_form.seedsQuantity) }}
+            {{ form_widget(edit_form.seedsQuantity) }}
+            {{ form_widget(edit_form.seedsQuantityUnit) }}
+        </div>
+
+        <div>
+            {{ form_label(edit_form.seedingDepth) }}
+            {{ form_widget(edit_form.seedingDepth) }} cm
+        </div>
+
+        <div>
+            {{ form_label(edit_form.lineDistance) }}
+            {{ form_widget(edit_form.lineDistance) }} cm
+        </div>
+
+        <div>
+            {{ form_label(edit_form.lineInterval) }}
+            {{ form_widget(edit_form.lineInterval) }} cm
+        </div>
+
+        <div>
+            {{ form_label(edit_form.watering) }}
+            {{ form_widget(edit_form.watering) }}
+        </div>
+
+        <div>
+            {{ form_label(edit_form.timeToSprout) }}
+            {{ form_widget(edit_form.timeToSprout) }} j
+        </div>
+
+        <div>
+            {{ form_label(edit_form.timeToHarvest) }}
+            {{ form_widget(edit_form.timeToHarvest) }} j
+        </div>
+
+        <div>
+            {{ form_label(edit_form.underCoverStart) }}
+            {{ form_widget(edit_form.underCoverStart) }}
+        </div>
+
+        <div>
+            {{ form_label(edit_form.underCoverEnd) }}
+            {{ form_widget(edit_form.underCoverEnd) }}
+        </div>
+
+        <div>
+            {{ form_label(edit_form.inGroundStart) }}
+            {{ form_widget(edit_form.inGroundStart) }}
+        </div>
+
+        <div>
+            {{ form_label(edit_form.inGroundEnd) }}
+            {{ form_widget(edit_form.inGroundEnd) }}
+        </div>
+
+        <div>
+            {{ form_label(edit_form.plantingStart) }}
+            {{ form_widget(edit_form.plantingStart) }}
+        </div>
+
+        <div>
+            {{ form_label(edit_form.plantingEnd) }}
+            {{ form_widget(edit_form.plantingEnd) }}
+        </div>
+
+        <div>
+            {{ form_label(edit_form.harvestStart) }}
+            {{ form_widget(edit_form.harvestStart) }}
+        </div>
+
+        <div>
+            {{ form_label(edit_form.harvestEnd) }}
+            {{ form_widget(edit_form.harvestEnd) }}
+        </div>
+
+        <div>
+            {{ form_label(edit_form.friendlyPlants) }}
+            {{ form_widget(edit_form.friendlyPlants) }}
+        </div>
+
+        <div>
+            {{ form_label(edit_form.enemyPlants) }}
+            {{ form_widget(edit_form.enemyPlants) }}
+        </div>
+
+        <div>
+            {{ form_label(edit_form.tips) }}
+            {{ form_widget(edit_form.tips) }}
+        </div>
+
+        <div class="control">
+            <a href="{{ path('admin_plant_index') }}">Back to the list</a>
+            <input type="submit" value="Edit" />
+        </div>
+
     {{ form_end(edit_form) }}
 
-    <ul>
-        <li>
-            <a href="{{ path('admin_plant_index') }}">Back to the list</a>
-        </li>
+    <ul class="control">
         <li>
             {{ form_start(delete_form) }}
                 <input type="submit" value="Delete">
             {{ form_end(delete_form) }}
         </li>
     </ul>
+</div>
 {% endblock %}

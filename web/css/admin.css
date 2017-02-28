@@ -89,7 +89,6 @@ a {
 /* line 22, ../sass/admin.scss */
 .mainContainer {
   text-align: left;
-  display: inline-block;
   border: 5px solid red;
   margin: auto;
 }
@@ -109,7 +108,7 @@ label {
   padding: 10px;
 }
 
-/* line 50, ../sass/admin.scss */
+/* line 47, ../sass/admin.scss */
 input[type=radio] + label, input[type=checkbox] + label {
   display: inline-block;
   padding: 10px 20px;
@@ -117,7 +116,7 @@ input[type=radio] + label, input[type=checkbox] + label {
   border: 2px solid transparent;
 }
 
-/* line 59, ../sass/admin.scss */
+/* line 55, ../sass/admin.scss */
 input[type=radio]:checked + label, input[type=checkbox]:checked + label {
   color: #eee;
   border-color: white;
@@ -126,38 +125,38 @@ input[type=radio]:checked + label, input[type=checkbox]:checked + label {
   border-radius: 10px;
 }
 
-/* line 68, ../sass/admin.scss */
+/* line 64, ../sass/admin.scss */
 form {
   font-family: 'Muli', sans-serif;
   font-weight: 400;
 }
 
-/* line 73, ../sass/admin.scss */
+/* line 69, ../sass/admin.scss */
 input {
   font-family: 'Muli', sans-serif;
   font-weight: 600;
 }
 
-/* line 79, ../sass/admin.scss */
+/* line 75, ../sass/admin.scss */
 input[type=text], input[type=number], select {
   height: 40px;
   padding: 0 10px;
   box-sizing: border-box;
 }
 
-/* line 85, ../sass/admin.scss */
+/* line 81, ../sass/admin.scss */
 input[type=text], input[type=number] {
   color: #eee;
   background-color: #111;
   border: 1px solid #555;
 }
 
-/* line 91, ../sass/admin.scss */
+/* line 87, ../sass/admin.scss */
 input[type=text] {
   width: 50%;
 }
 
-/* line 95, ../sass/admin.scss */
+/* line 91, ../sass/admin.scss */
 input[type=number] {
   width: 100px;
   text-align: right;
@@ -165,28 +164,33 @@ input[type=number] {
   -moz-appearance: textfield;
 }
 
-/* line 102, ../sass/admin.scss */
+/* line 98, ../sass/admin.scss */
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   -webkit-appearance: none;
 }
 
-/* line 107, ../sass/admin.scss */
+/* line 103, ../sass/admin.scss */
 select {
   display: inline-block;
   position: relative;
   top: -4px;
 }
 
-/* line 114, ../sass/admin.scss */
+/* line 110, ../sass/admin.scss */
 #appbundle_plant > div {
   border: 1px solid yellow;
   padding: 20px 0;
 }
 
-/* line 120, ../sass/admin.scss */
+/* line 116, ../sass/admin.scss */
 table {
   margin: auto;
+}
+
+/* line 120, ../sass/admin.scss */
+table.show {
+  width: 100%;
 }
 
 /* line 124, ../sass/admin.scss */
@@ -195,28 +199,51 @@ td, th {
   padding: 5px 10px;
 }
 
-@media screen and (min-width: 1200px) {
-  /* line 131, ../sass/admin.scss */
-  form {
-    font-size: 1.4em;
+/* line 129, ../sass/admin.scss */
+.control {
+  text-align: center;
+  padding: 10px !important;
+}
+
+/* line 134, ../sass/admin.scss */
+table.show td {
+  font-weight: 600;
+}
+
+@media screen and (min-width: 700px) {
+  /* line 139, ../sass/admin.scss */
+  .mainContainer {
+    display: inline-block;
+    font-size: 1.5em;
   }
 
-  /* line 135, ../sass/admin.scss */
+  /* line 144, ../sass/admin.scss */
+  table.show td, table.show th {
+    padding: 10px 50px 10px 10px;
+  }
+}
+@media screen and (min-width: 1200px) {
+  /* line 151, ../sass/admin.scss */
+  form {
+    font-size: 1.2em;
+  }
+
+  /* line 155, ../sass/admin.scss */
   input {
     font-size: 1em;
   }
 
-  /* line 139, ../sass/admin.scss */
+  /* line 159, ../sass/admin.scss */
   label {
     width: 30%;
   }
 
-  /* line 143, ../sass/admin.scss */
+  /* line 163, ../sass/admin.scss */
   input[type=radio] + label, input[type=checkbox] + label {
     width: auto;
   }
 
-  /* line 147, ../sass/admin.scss */
+  /* line 167, ../sass/admin.scss */
   #appbundle_plant_soil, #appbundle_plant_watering {
     display: inline-block;
   }

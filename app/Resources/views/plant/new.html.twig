@@ -8,6 +8,7 @@
     {{ form_start(form) }}
 
     <div id="appbundle_plant">
+
         <div>
             {{ form_label(form.name) }}
             {{ form_widget(form.name) }}
@@ -110,10 +111,8 @@
             {{ form_widget(form.tips) }}
         </div>
 
-        <div class="">
-
-            {{ form_errors(form.soil) }}
-
+        <div class="control">
+            <a href="{{ path('admin_plant_index') }}">Back to the list</a>
             <input type="submit" value="Create" />
         </div>
 
@@ -121,10 +120,5 @@
 
     {{ form_end(form) }}
 
-    <ul>
-        <li>
-            <a href="{{ path('admin_plant_index') }}">Back to the list</a>
-        </li>
-    </ul>
 </div>
 {% endblock %}
