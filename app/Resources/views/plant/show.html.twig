@@ -45,6 +45,14 @@
                 <td>{{ plant.watering }}</td>
             </tr>
             <tr>
+                <th>TimeToSprout</th>
+                <td>{{ plant.timeToSprout }}</td>
+            </tr>
+            <tr>
+                <th>TimeToHarvest</th>
+                <td>{{ plant.timeToHarvest }}</td>
+            </tr>
+            <tr>
                 <th>Undercoverstart</th>
                 <td>
                     {{ date('2000-' ~ plant.underCoverStart ~ '-1')|date("M") }} -

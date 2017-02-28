@@ -141,6 +141,20 @@ class Plant
     /**
      * @var int
      *
+     * @ORM\Column(name="timeToSprout", type="integer", nullable=true)
+     */
+    private $timeToSprout;
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="timeToHarvest", type="integer", nullable=true)
+     */
+    private $timeToHarvest;
+
+    /**
+     * @var int
+     *
      * @ORM\ManyToMany(targetEntity="Plant")
      * @ORM\JoinTable(name="plant_friandlyplants")
      */
@@ -496,6 +510,54 @@ class Plant
     public function getHarvestEnd()
     {
         return $this->harvestEnd;
+    }
+
+    /**
+     * Set timeToSprout
+     *
+     * @param integer $timeToSprout
+     *
+     * @return Plant
+     */
+    public function setTimeToSprout($timeToSprout)
+    {
+        $this->timeToSprout = $timeToSprout;
+
+        return $this;
+    }
+
+    /**
+     * Get timeToSprout
+     *
+     * @return integer
+     */
+    public function getTimeToSprout()
+    {
+        return $this->timeToSprout;
+    }
+
+    /**
+     * Set timeToHarvest
+     *
+     * @param integer $timeToHarvest
+     *
+     * @return Plant
+     */
+    public function setTimeToHarvest($timeToHarvest)
+    {
+        $this->timeToHarvest = $timeToHarvest;
+
+        return $this;
+    }
+
+    /**
+     * Get timeToHarvest
+     *
+     * @return integer
+     */
+    public function getTimeToHarvest()
+    {
+        return $this->timeToHarvest;
     }
 
     /**
