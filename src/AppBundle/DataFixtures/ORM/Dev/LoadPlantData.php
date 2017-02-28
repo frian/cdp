@@ -100,6 +100,23 @@ class LoadPlantData extends AbstractFixture implements OrderedFixtureInterface
                 list( $harvestStart, $harvestEnd ) = array_map('trim', explode("-", $item[11]));
             }
 
+
+            // -- seedsQuantity
+            if ( empty($item[2])) {
+                $item[2] = null;
+            }
+
+            // -- timeToSprout
+            if ( empty($item[12])) {
+                $item[12] = null;
+            }
+
+            // -- timeToHarvest
+            if ( empty($item[13])) {
+                $item[13] = null;
+            }
+
+
 	    	// create entity
 	        $entity = new PLant();
 	        $entity->setName($item[0]);

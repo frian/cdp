@@ -43,7 +43,7 @@ class Plant
     /**
      * @var int
      *
-     * @ORM\Column(name="seedsQuantity", type="integer")
+     * @ORM\Column(name="seedsQuantity", type="integer", nullable=true)
      */
     private $seedsQuantity;
 
