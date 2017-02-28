@@ -61,12 +61,10 @@ class LoadPlantData extends AbstractFixture implements OrderedFixtureInterface
             $soilStrings = [$item[1]];
 
             if (strpos($soilStrings[0], ',') !== false) {
-
                 $soilStrings = array_map('trim', explode(",", $soilStrings[0]));
             }
 
             foreach ($soilStrings as $key => $value) {
-
                 $soilStrings[$key] = $manager->getRepository('AppBundle:Soil')->findOneByName($value);
             }
 
@@ -105,6 +103,11 @@ class LoadPlantData extends AbstractFixture implements OrderedFixtureInterface
 	    	// create entity
 	        $entity = new PLant();
 	        $entity->setName($item[0]);
+
+            foreach ($soilStrings as $soil) {
+                $entity->addSoil($soil);
+            }
+
             $entity->setSeedsQuantity($item[2]);
             $entity->setSeedsQuantityUnit($manager->getRepository('AppBundle:SeedsQuantityUnit')->findOneByName($item[3]));
             $entity->setSeedingDepth($item[4]);
