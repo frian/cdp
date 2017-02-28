@@ -103,12 +103,12 @@
                 </td>
             </tr>
         {% endfor %}
+            <tr>
+                <td class="control" colspan="18">
+                    <a href="{{ path('admin_plant_new') }}">Create a new plant</a>
+                </td>
+            </tr>
         </tbody>
     </table>
 
-    <ul>
-        <li>
-            <a href="{{ path('admin_plant_new') }}">Create a new plant</a>
-        </li>
-    </ul>
 {% endblock %}
