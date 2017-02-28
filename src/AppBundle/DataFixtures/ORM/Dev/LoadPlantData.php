@@ -71,12 +71,56 @@ class LoadPlantData extends AbstractFixture implements OrderedFixtureInterface
             }
 
 
-            $watering = $manager->getRepository('AppBundle:Watering')->findOneByName($item[7]);
+            /*
+            *  Dates
+            */
+            $underCoverStart = null;
+            $underCoverEnd = null;
 
+            if ( ! empty($item[8])) {
+                list( $undeCoverStart, $undeCoverEnd ) = array_map('trim', explode("-", $item[8]));
+            }
+
+            $inGroundStart = null;
+            $inGroundEnd = null;
+
+            if ( ! empty($item[9])) {
+                list( $inGroundStart, $inGroundEnd ) = array_map('trim', explode("-", $item[9]));
+            }
+
+            $plantationStart = null;
+            $plantationEnd = null;
+
+            if ( ! empty($item[10])) {
+                list( $plantationStart, $plantationEnd ) = array_map('trim', explode("-", $item[10]));
+            }
+
+            $harvestStart = null;
+            $harvestEnd = null;
+
+            if ( ! empty($item[11])) {
+                list( $harvestStart, $harvestEnd ) = array_map('trim', explode("-", $item[11]));
+            }
 
 	    	// create entity
 	        $entity = new PLant();
 	        $entity->setName($item[0]);
+            $entity->setSeedsQuantity($item[2]);
+            $entity->setSeedsQuantityUnit($manager->getRepository('AppBundle:SeedsQuantityUnit')->findOneByName($item[3]));
+            $entity->setSeedingDepth($item[4]);
+            $entity->setLineDistance($item[5]);
+            $entity->setLineInterval($item[6]);
+            $entity->setWatering($manager->getRepository('AppBundle:Watering')->findOneByName($item[7]));
+            $entity->setUnderCoverStart($underCoverStart);
+            $entity->setUnderCoverEnd($underCoverEnd);
+            $entity->setInGroundStart($inGroundStart);
+            $entity->setInGroundEnd($inGroundEnd);
+            $entity->setPlantingStart($plantationStart);
+            $entity->setPlantingEnd($plantationEnd);
+            $entity->setHarvestStart($harvestStart);
+            $entity->setHarvestEnd($harvestEnd);
+            $entity->setTimeToSprout($item[12]);
+            $entity->setTimeToHarvest($item[13]);
 
 	        // -- add reference for further fixtures
 	        $this->addReference('Plant'.$index, $entity);
