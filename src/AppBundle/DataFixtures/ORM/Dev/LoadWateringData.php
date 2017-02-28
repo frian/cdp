@@ -38,7 +38,13 @@ class LoadWateringData extends AbstractFixture implements OrderedFixtureInterfac
     		),
             2 => array(
     			'name' => 'important',
-    		)
+    		),
+            4 => array(
+                'name' => 'limité',
+            ),
+            5 => array(
+                'name' => 'très peu',
+            ),
     	);
 
     	/**
@@ -64,6 +70,6 @@ class LoadWateringData extends AbstractFixture implements OrderedFixtureInterfac
      */
     public function getOrder()
     {
-    	return 2; // the order in which fixtures will be loaded
+    	return 3; // the order in which fixtures will be loaded
     }
 }
