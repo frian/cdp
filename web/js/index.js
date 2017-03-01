@@ -127,9 +127,18 @@ function addParamsTable(plant, translations) {
         seedsQuantityUnit = plant.seeds_quantity_unit.name;
     }
 
+    var soils = '';
+    var numSoils = plant.soil.length;
+    $.each( plant.soil, function( i, item ) {
+        soils += item.name;
+        if (i !== numSoils - 1) {
+            soils += ', '
+        }
+    });
+
     table.append(
         $('<tr>', { class: 'values' }).append(
-            $('<td>', { text: plant.soil[0].name })
+            $('<td>', { text: soils })
         ).append(
             $('<td>', { text: seedsQuantity + ' ' + seedsQuantityUnit })
         ).append(
