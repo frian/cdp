@@ -20,15 +20,8 @@ $(function() {
             $("#nav .cell").append('<span id="' + i + '">' + ' ' + item.name + '</div>');
         });
         plants = data;
-        console.log(data);
+        setBodyHeight();
     });
-
-    /*
-     * -- adapt body height
-    */
-    if ($("body").height() > $(window).height()) {
-        $("body").css('height', 'auto');
-    }
 
 
     /*
@@ -77,12 +70,10 @@ $(function() {
     });
 
 
-    var $window = $(window);
-
     /*
      * -- window resize
     */
-    $window.resize(function() {
+    $(window).resize(function() {
 
         if ($("body").height() > $(window).height()) {
             $("body").css('height', 'auto');
@@ -98,7 +89,9 @@ $(function() {
 
 });
 
-
+/*
+ * -- create and add parameters table
+*/
 function addParamsTable(plant, translations) {
 
     var table = $('<table/>');
@@ -227,6 +220,9 @@ function addParamsTable(plant, translations) {
     $("#content .cell").html(table);
 }
 
+/*
+ * -- background image resize
+*/
 function resizeBg() {
 
     var $window = $(window);
@@ -286,4 +282,16 @@ function resizeBg() {
     $bg.stop(true);
 
     $bg.animate( {opacity: 1} , 1000 );
+}
+
+/*
+ * -- set body height
+*/
+function setBodyHeight() {
+    if ($("body").height() > $(window).height()) {
+        $("body").css('height', 'auto');
+    }
+    else {
+        $("body").css('height', '100%');
+    }
 }
