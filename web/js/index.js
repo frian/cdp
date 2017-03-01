@@ -115,8 +115,6 @@ function addParamsTable(plant, translations) {
     );
 
     // -- first values line
-    // TODO: create soil string
-
     var seedsQuantity = '';
     if (plant.seeds_quantity !== undefined) {
         seedsQuantity = plant.seeds_quantity;
