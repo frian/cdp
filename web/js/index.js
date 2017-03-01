@@ -80,9 +80,9 @@ $(function() {
     var $window = $(window);
 
     /*
-     * -- window rwsize
+     * -- window resize
     */
-    $window.resize(function(){
+    $window.resize(function() {
 
         if ($("body").height() > $(window).height()) {
             $("body").css('height', 'auto');
@@ -91,7 +91,7 @@ $(function() {
             $("body").css('height', '100%');
         }
 
-        resizeBg($window);
+        resizeBg();
 
     }).trigger("resize");
 
@@ -227,8 +227,9 @@ function addParamsTable(plant, translations) {
     $("#content .cell").html(table);
 }
 
-function resizeBg($window) {
+function resizeBg() {
 
+    var $window = $(window);
     var $bg = $("#bg");
 
     // -- image ratio
@@ -240,6 +241,7 @@ function resizeBg($window) {
     if (imageAspectRatio < 1) {
         imageOrientation = 'portrait';
     }
+
 
     // -- window ratio
     windowAspectRatio = $window.width() / $window.height();
