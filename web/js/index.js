@@ -31,8 +31,6 @@ $(function() {
     }
 
 
-    // var
-
     /*
      * -- click on a nav span
     */
@@ -79,6 +77,23 @@ $(function() {
     });
 
 
+    var $window = $(window);
+
+    /*
+     * -- window rwsize
+    */
+    $window.resize(function(){
+
+        if ($("body").height() > $(window).height()) {
+            $("body").css('height', 'auto');
+        }
+        else {
+            $("body").css('height', '100%');
+        }
+
+        resizeBg($window);
+
+    }).trigger("resize");
 
 
 });
@@ -210,4 +225,63 @@ function addParamsTable(plant, translations) {
     );
 
     $("#content .cell").html(table);
+}
+
+function resizeBg($window) {
+
+    var $bg = $("#bg");
+
+    // -- image ratio
+    imageAspectRatio = $bg.width() / $bg.height();
+
+    // -- image orientation
+    var imageOrientation = 'landscape';
+
+    if (imageAspectRatio < 1) {
+        imageOrientation = 'portrait';
+    }
+
+    // -- window ratio
+    windowAspectRatio = $window.width() / $window.height();
+
+    // -- window orientation
+    var windowOrientation = 'landscape';
+
+    if (windowAspectRatio < 1) {
+        windowOrientation = 'portrait';
+    }
+
+    //
+    // -- handle image and windows ratio - for background centering
+    //
+    if ( windowAspectRatio < imageAspectRatio ) {
+
+        if (imageOrientation == 'portrait' && windowOrientation == 'landscape') {
+            $bg.removeClass().addClass('bgwidth');
+            $bg.css('margin-top', - ( ($bg.height() - $window.height()) / 2 ) );
+            $bg.css('margin-left', 0 );
+        }
+
+        else {
+            $bg.removeClass().addClass('bgheight');
+            $bg.css('margin-left', - ( ($bg.width() - $window.width()) / 2 ) );
+            $bg.css('margin-top', 0 );
+        }
+    }
+    else {
+        if (imageOrientation == 'portrait' && windowOrientation == 'portrait') {
+            $bg.removeClass().addClass('bgheight');
+            $bg.css('margin-left', - ( ($bg.width() - $window.width()) / 2 ) );
+            $bg.css('margin-top', 0 );
+        }
+        else {
+            $bg.removeClass().addClass('bgwidth');
+            $bg.css('margin-top', - ( ($bg.height() - $window.height()) / 2 ) );
+            $bg.css('margin-left', 0 );
+        }
+    }
+
+    $bg.stop(true);
+
+    $bg.animate( {opacity: 1} , 1000 );
 }
