@@ -221,7 +221,7 @@ div.linkTextWrapper {
 }
 
 /* line 150, ../sass/screen.scss */
-span {
+#nav span {
   display: inline-block;
   color: #000;
   border: 1px solid white;
@@ -238,7 +238,7 @@ span {
 }
 
 /* line 164, ../sass/screen.scss */
-span.active {
+#nav span.active {
   background-color: rgba(255, 255, 255, 0.4);
 }
 
@@ -338,7 +338,7 @@ span.active {
   }
 
   /* line 272, ../sass/screen.scss */
-  span {
+  #nav span {
     padding: 5px 40px;
   }
 
@@ -387,7 +387,7 @@ span.active {
   }
 
   /* line 321, ../sass/screen.scss */
-  span {
+  #nav span {
     padding: 10px 40px;
   }
 }

@@ -147,7 +147,7 @@ div.linkTextWrapper {
     margin: auto;
 }
 
-span {
+#nav span {
     display: inline-block;
     color: #000;
     border: 1px solid white;
@@ -161,7 +161,7 @@ span {
     background-color: rgba(255,255,255, 0.8);
 }
 
-span.active {
+#nav span.active {
     background-color: rgba(255,255,255, 0.4);
 }
 
@@ -269,7 +269,7 @@ span.active {
     $bigTextSize: 3em;
     $bigLineHeight: 1.05;
 
-    span {
+    #nav span {
         padding: 5px 40px;
     }
 
@@ -318,7 +318,7 @@ span.active {
     // $bigLineHeight: 1.05;
 
 
-    span {
+    #nav span {
         padding: 10px 40px;
     }
 }
