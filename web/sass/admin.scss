@@ -21,8 +21,6 @@ a {
 
 .mainContainer {
     text-align: left;
-    // display: inline-block;
-    @include debug(red, 5);
     margin: auto;
 }
 
@@ -30,10 +28,10 @@ a {
 
 h1 {
     font-family: 'Muli', sans-serif;
-    font-size: 3em;
+    font-size: 2em;
     text-align: center;
-    padding: 20px 0;
-    border: 2px solid white;
+    padding: 10px 0;
+    border-bottom: 2px solid white;
 }
 
 
@@ -104,12 +102,11 @@ select {
     display: inline-block;
     position: relative;
     top: -4px;
-    // border: 2px solid yellow;
 }
 
 #appbundle_plant > div {
-    @include debug(yellow, 1);
-    padding: 20px 0;
+    border-bottom: 1px solid #ccc;
+    padding: 10px 0;
 }
 
 
@@ -136,14 +133,14 @@ table.show td {
 }
 
 @media screen and (min-width: 700px) {
-    
+
     .mainContainer {
         display: inline-block;
-        font-size: 1.5em;
+        font-size: 1.2em;
     }
 
     table.show td, table.show th {
-        padding: 10px 50px 10px 10px;
+        padding: 5px 50px 5px 10px;
     }
 }
 
