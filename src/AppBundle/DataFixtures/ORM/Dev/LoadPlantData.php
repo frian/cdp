@@ -76,14 +76,24 @@ class LoadPlantData extends AbstractFixture implements OrderedFixtureInterface
             $underCoverEnd = null;
 
             if ( ! empty($item[8])) {
-                list( $undeCoverStart, $undeCoverEnd ) = array_map('trim', explode("-", $item[8]));
+                if (strpos($item[8], '-') !== false) {
+                    list( $underCoverStart, $underCoverEnd ) = array_map('trim', explode("-", $item[8]));
+                }
+                else {
+                    $underCoverStart = $item[8];
+                }
             }
 
             $inGroundStart = null;
             $inGroundEnd = null;
 
             if ( ! empty($item[9])) {
-                list( $inGroundStart, $inGroundEnd ) = array_map('trim', explode("-", $item[9]));
+                if (strpos($item[9], '-') !== false) {
+                    list( $inGroundStart, $inGroundEnd ) = array_map('trim', explode("-", $item[9]));
+                }
+                else {
+                    $inGroundStart = $item[9];
+                }
             }
 
             $plantationStart = null;
