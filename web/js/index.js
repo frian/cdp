@@ -20,6 +20,7 @@ $(function() {
             $("#nav .cell").append('<span id="' + i + '">' + ' ' + item.name + '</div>');
         });
         plants = data;
+        // console.log(data);
         setBodyHeight();
     });
 
@@ -108,9 +109,9 @@ function addParamsTable(plant, translations) {
         $('<tr>', { class: 'header' }).append(
             $('<td>', { text: 'sol' })
         ).append(
-            $('<td>', { text: 'qte de graines' })
+            $('<td>', { text: 'graines / m2' })
         ).append(
-            $('<td>', { text: 'distance' })
+            $('<td>', { text: 'P x L x R (cm)' })
         )
     );
 
@@ -140,21 +141,29 @@ function addParamsTable(plant, translations) {
         ).append(
             $('<td>', { text: seedsQuantity + ' ' + seedsQuantityUnit })
         ).append(
-            $('<td>', { text: plant.line_distance + ' x ' + plant.line_interval })
+            $('<td>', { text: plant.seeding_depth + ' x ' + plant.line_distance + ' x ' + plant.line_interval })
         )
     );
 
     // -- second header
     table.append(
         $('<tr>', { class: 'header' }).append(
-            $('<td>', { colspan: 3, text: 'arrosage' })
+            $('<td>', { text: 'arrosage' })
+        ).append(
+            $('<td>', { text: 'lévée (jours)' })
+        ).append(
+            $('<td>', { text: 'récolte (jours)' })
         )
     );
 
     // -- second values line
     table.append(
         $('<tr>', { class: 'values' }).append(
-            $('<td>', { colspan: 3, text: plant.watering.name })
+            $('<td>', { text: plant.watering.name })
+        ).append(
+            $('<td>', { text: plant.time_to_sprout || '-' })
+        ).append(
+            $('<td>', { text: plant.time_to_harvest || '-' })
         )
     );
 
@@ -180,6 +189,16 @@ function addParamsTable(plant, translations) {
         underCoverEnd =  translations.month.fr[plant.under_cover_end];
     }
 
+    var underCoverString = '';
+
+    if (underCoverStart !== '') {
+        underCoverString = underCoverStart;
+        if (underCoverEnd !== '') {
+            underCoverString += ' - ' + underCoverEnd;
+        }
+    }
+
+
     var inGroundStart = '';
     if (plant.in_ground_start !== undefined) {
         inGroundStart =  translations.month.fr[plant.in_ground_start];
@@ -189,6 +208,16 @@ function addParamsTable(plant, translations) {
     if (plant.in_ground_end !== undefined) {
         inGroundEnd =  translations.month.fr[plant.in_ground_end];
     }
+
+    var inGroundString = '';
+
+    if (inGroundStart !== '') {
+        inGroundString = inGroundStart;
+        if (inGroundEnd !== '') {
+            inGroundString += ' - ' + inGroundEnd;
+        }
+    }
+
 
     var plantingStart = '';
     if (plant.planting_start !== undefined) {
@@ -200,13 +229,23 @@ function addParamsTable(plant, translations) {
         plantingEnd =  translations.month.fr[plant.planting_end];
     }
 
+
+    var plantingString = '';
+
+    if (plantingStart !== '') {
+        plantingString = plantingStart;
+        if (plantingEnd !== '') {
+            plantingString += ' - ' + plantingEnd;
+        }
+    }
+
     table.append(
         $('<tr>', { class: 'values' }).append(
-            $('<td>', { text: underCoverStart + ' - ' + underCoverEnd })
+            $('<td>', { text: underCoverString })
         ).append(
-            $('<td>', { text: inGroundStart + ' - ' + inGroundEnd })
+            $('<td>', { text: inGroundString })
         ).append(
-            $('<td>', { text: plantingStart + ' - ' + plantingEnd })
+            $('<td>', { text: plantingString })
         )
     );
 
