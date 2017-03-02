@@ -100,7 +100,12 @@ class LoadPlantData extends AbstractFixture implements OrderedFixtureInterface
             $plantationEnd = null;
 
             if ( ! empty($item[10])) {
-                list( $plantationStart, $plantationEnd ) = array_map('trim', explode("-", $item[10]));
+                if (strpos($item[10], '-') !== false) {
+                    list( $plantationStart, $plantationEnd ) = array_map('trim', explode("-", $item[10]));
+                }
+                else {
+                    $plantationEnd = $item[10];
+                }
             }
 
             $harvestStart = null;
