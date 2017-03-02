@@ -48,6 +48,21 @@ class LoadSoilData extends AbstractFixture implements OrderedFixtureInterface
             6 => array(
                 'name' => 'lourd',
             ),
+            7 => array(
+    			'name' => 'drainé',
+    		),
+            8 => array(
+    			'name' => 'peu calcaire',
+    		),
+            9 => array(
+    			'name' => 'ferme',
+    		),
+            10 => array(
+                'name' => 'meuble',
+            ),
+            11 => array(
+                'name' => 'neutre',
+            ),
     	);
 
     	/**
