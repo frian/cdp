@@ -104,15 +104,36 @@ select {
 
 table {
     margin: auto;
+    width: 100%;
 }
 
 table.show {
     width: 100%;
 }
 
+tr {
+    border-bottom: 1px solid #666;
+}
+
+tr:nth-child(even) {
+    background-color: #111;
+}
+
+// -- hide all cells except name
+th:nth-child(n+2):nth-child(-n+16),
+td:nth-child(n+2):nth-child(-n+16) {
+    display: none;
+}
+
+tr[data-href]:hover td {
+    color: black;
+    background-color: #ddd;
+    cursor: pointer;
+}
+
 td, th {
-    @include debug(white);
-    padding: 5px 10px;
+    // @include debug(white);
+    padding: 10px;
 }
 
 .control {
@@ -162,6 +183,12 @@ table.show td {
         padding: 5px 50px 5px 10px;
     }
 
+    // -- show sol, P, l, R
+    td:nth-child(2), th:nth-child(2),
+    th:nth-child(n+4):nth-child(-n+6),
+    td:nth-child(n+4):nth-child(-n+6) {
+        display: table-cell!important;
+    }
 
     label[for=appbundle_plant_seedsQuantity], label[for=appbundle_plant_seedingDepth],
     label[for=appbundle_plant_lineDistance], label[for=appbundle_plant_lineInterval] {
@@ -203,6 +230,13 @@ table.show td {
         max-width: 1280px;
     }
 
+    // -- show sol, P, l, R
+    // td:nth-child(3), th:nth-child(3),
+    th:nth-child(n+6):nth-child(-n+13),
+    td:nth-child(n+6):nth-child(-n+13) {
+        display: table-cell!important;
+    }
+
     input {
         font-size: 1em;
     }
@@ -240,5 +274,14 @@ table.show td {
     #appbundle_plant_harvestStart .controlButton,
     #appbundle_plant_harvestEnd .controlButton {
         width: auto;
+    }
+}
+
+@media screen and (min-width: 1600px) {
+
+    td:nth-child(3), th:nth-child(3),
+    th:nth-child(n+14):nth-child(-n+15),
+    td:nth-child(n+14):nth-child(-n+15) {
+        display: table-cell!important;
     }
 }

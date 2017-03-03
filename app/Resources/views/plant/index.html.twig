@@ -6,30 +6,27 @@
     <table>
         <thead>
             <tr>
-                <th>Id</th>
-                <th>Name</th>
-                <th>Soil</th>
-                <th>Seedsquantity</th>
-                <th>Seedingdepth</th>
-                <th>Linedistance</th>
-                <th>Lineinterval</th>
-                <th>Watering</th>
-                <th>TimeToSprout</th>
-                <th>TimeToHarvest</th>
-                <th>Undercoverstart</th>
-                <th>Ingroundstart</th>
-                <th>Plantingstart</th>
-                <th>Harveststart</th>
+                <th>Nom</th>
+                <th>Sol</th>
+                <th>Graines / m2</th>
+                <th>Profondeur</th>
+                <th>Ligne</th>
+                <th>Rang</th>
+                <th>Arrosage</th>
+                <th>Levée</th>
+                <th>Récolte</th>
+                <th>Semis sous abri</th>
+                <th>Semis en terre</th>
+                <th>Plantation</th>
+                <th>Récoltes</th>
                 <th>Friendlyplants</th>
                 <th>Enemyplants</th>
                 <th>Tips</th>
-                <th>Actions</th>
             </tr>
         </thead>
         <tbody>
         {% for plant in plants %}
-            <tr>
-                <td><a href="{{ path('admin_plant_show', { 'id': plant.id }) }}">{{ plant.id }}</a></td>
+            <tr data-href="{{ path('admin_plant_show', { 'id': plant.id }) }}">
                 <td>{{ plant.name }}</td>
                 <td>
                     {% for soil in plant.soil %}
@@ -123,16 +120,6 @@
                     {% endfor %}
                 </td>
                 <td>{{ plant.tips }}</td>
-                <td>
-                    <ul>
-                        <li>
-                            <a href="{{ path('admin_plant_show', { 'id': plant.id }) }}">show</a>
-                        </li>
-                        <li>
-                            <a href="{{ path('admin_plant_edit', { 'id': plant.id }) }}">edit</a>
-                        </li>
-                    </ul>
-                </td>
             </tr>
         {% endfor %}
             <tr>
