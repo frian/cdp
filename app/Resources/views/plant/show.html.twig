@@ -48,11 +48,31 @@
             </tr>
             <tr>
                 <th>TimeToSprout</th>
-                <td>{{ plant.timeToSprout }}</td>
+                <td>
+                    {% if plant.timeToSproutStart %}
+                        {{ plant.timeToSproutStart }}
+                        {% if plant.timeToSproutEnd %}
+                            - {{ plant.timeToSproutEnd }}
+                        {% endif %}
+                        j
+                    {% else %}
+                        -
+                    {% endif %}
+                </td>
             </tr>
             <tr>
                 <th>TimeToHarvest</th>
-                <td>{{ plant.timeToHarvest }}</td>
+                <td>
+                    {% if plant.timeToHarvestStart %}
+                        {{ plant.timeToHarvestStart }}
+                        {% if plant.timeToHarvestEnd %}
+                            - {{ plant.timeToHarvestEnd }}
+                        {% endif %}
+                        j
+                    {% else %}
+                        -
+                    {% endif %}
+                </td>
             </tr>
             <tr>
                 <th>Undercoverstart</th>

@@ -141,16 +141,30 @@ class Plant
     /**
      * @var int
      *
-     * @ORM\Column(name="timeToSprout", type="integer", nullable=true)
+     * @ORM\Column(name="timeToSproutStart", type="integer", nullable=true)
      */
-    private $timeToSprout;
+    private $timeToSproutStart;
 
     /**
      * @var int
      *
-     * @ORM\Column(name="timeToHarvest", type="integer", nullable=true)
+     * @ORM\Column(name="timeToSproutEnd", type="integer", nullable=true)
      */
-    private $timeToHarvest;
+    private $timeToSproutEnd;
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="timeToHarvestStart", type="integer", nullable=true)
+     */
+    private $timeToHarvestStart;
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="timeToHarvestEnd", type="integer", nullable=true)
+     */
+    private $timeToHarvestEnd;
 
     /**
      * @var int
@@ -513,51 +527,99 @@ class Plant
     }
 
     /**
-     * Set timeToSprout
+     * Set timeToSproutStart
      *
-     * @param integer $timeToSprout
+     * @param integer $timeToSproutStart
      *
      * @return Plant
      */
-    public function setTimeToSprout($timeToSprout)
+    public function setTimeToSproutStart($timeToSproutStart)
     {
-        $this->timeToSprout = $timeToSprout;
+        $this->timeToSproutStart = $timeToSproutStart;
 
         return $this;
     }
 
     /**
-     * Get timeToSprout
+     * Get timeToSproutStart
      *
      * @return integer
      */
-    public function getTimeToSprout()
+    public function getTimeToSproutStart()
     {
-        return $this->timeToSprout;
+        return $this->timeToSproutStart;
     }
 
     /**
-     * Set timeToHarvest
+     * Set timeToSproutEnd
      *
-     * @param integer $timeToHarvest
+     * @param integer $timeToSproutEnd
      *
      * @return Plant
      */
-    public function setTimeToHarvest($timeToHarvest)
+    public function setTimeToSproutEnd($timeToSproutEnd)
     {
-        $this->timeToHarvest = $timeToHarvest;
+        $this->timeToSproutEnd = $timeToSproutEnd;
 
         return $this;
     }
 
     /**
-     * Get timeToHarvest
+     * Get timeToSproutEnd
      *
      * @return integer
      */
-    public function getTimeToHarvest()
+    public function getTimeToSproutEnd()
     {
-        return $this->timeToHarvest;
+        return $this->timeToSproutEnd;
+    }
+
+    /**
+     * Set timeToHarvestStart
+     *
+     * @param integer $timeToHarvestStart
+     *
+     * @return Plant
+     */
+    public function setTimeToHarvestStart($timeToHarvestStart)
+    {
+        $this->timeToHarvestStart = $timeToHarvestStart;
+
+        return $this;
+    }
+
+    /**
+     * Get timeToHarvestStart
+     *
+     * @return integer
+     */
+    public function getTimeToHarvestStart()
+    {
+        return $this->timeToHarvestStart;
+    }
+
+    /**
+     * Set timeToHarvestEnd
+     *
+     * @param integer $timeToHarvestEnd
+     *
+     * @return Plant
+     */
+    public function setTimeToHarvestEnd($timeToHarvestEnd)
+    {
+        $this->timeToHarvestEnd = $timeToHarvestEnd;
+
+        return $this;
+    }
+
+    /**
+     * Get timeToHarvestEnd
+     *
+     * @return integer
+     */
+    public function getTimeToHarvestEnd()
+    {
+        return $this->timeToHarvestEnd;
     }
 
     /**

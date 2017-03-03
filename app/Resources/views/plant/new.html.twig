@@ -1,5 +1,20 @@
 {% extends 'base.html.twig' %}
 
+
+{% form_theme form _self %}
+
+{%- block choice_widget_expanded -%}
+    <div {{ block('widget_container_attributes') }}>
+    {%- for child in form %}
+        <div class="controlButton">
+            {{- form_widget(child) -}}
+            {{- form_label(child, null, {translation_domain: choice_translation_domain}) -}}
+        </div>
+    {% endfor -%}
+    </div>
+{%- endblock choice_widget_expanded -%}
+
+
 {% block body %}
 <div class="mainContainer">
 
@@ -47,13 +62,13 @@
         </div>
 
         <div>
-            {{ form_label(form.timeToSprout) }}
-            {{ form_widget(form.timeToSprout) }} j
+            {{ form_label(form.timeToSproutStart) }}
+            {{ form_widget(form.timeToSproutStart) }} - {{ form_widget(form.timeToSproutEnd) }} j
         </div>
 
         <div>
-            {{ form_label(form.timeToHarvest) }}
-            {{ form_widget(form.timeToHarvest) }} j
+            {{ form_label(form.timeToHarvestStart) }}
+            {{ form_widget(form.timeToHarvestStart) }} - {{ form_widget(form.timeToHarvestEnd) }} j
         </div>
 
         <div>

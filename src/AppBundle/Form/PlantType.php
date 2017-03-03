@@ -78,8 +78,10 @@ class PlantType extends AbstractType
                 'choices' => $months,
                 'expanded' => true
             ))
-            ->add('timeToSprout')
-            ->add('timeToHarvest')
+            ->add('timeToSproutStart')
+            ->add('timeToSproutEnd')
+            ->add('timeToHarvestStart')
+            ->add('timeToHarvestEnd')
             ->add('friendlyPlants', EntityType::class, array(
                 'class'    => 'AppBundle:Plant',
                 'expanded' => true,

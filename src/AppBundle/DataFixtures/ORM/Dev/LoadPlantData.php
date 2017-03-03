@@ -104,7 +104,7 @@ class LoadPlantData extends AbstractFixture implements OrderedFixtureInterface
                     list( $plantationStart, $plantationEnd ) = array_map('trim', explode("-", $item[10]));
                 }
                 else {
-                    $plantationEnd = $item[10];
+                    $plantationStart = $item[10];
                 }
             }
 
@@ -122,13 +122,29 @@ class LoadPlantData extends AbstractFixture implements OrderedFixtureInterface
             }
 
             // -- timeToSprout
-            if ( empty($item[12])) {
-                $item[12] = null;
+            $timeToSproutStart = null;
+            $timeToSproutEnd = null;
+
+            if ( ! empty($item[12])) {
+                if (strpos($item[12], '-') !== false) {
+                    list( $timeToSproutStart, $timeToSproutEnd ) = array_map('trim', explode("-", $item[12]));
+                }
+                else {
+                    $timeToSproutStart = $item[12];
+                }
             }
 
             // -- timeToHarvest
-            if ( empty($item[13])) {
-                $item[13] = null;
+            $timeToHarvestStart = null;
+            $timeToHarvestEnd = null;
+
+            if ( ! empty($item[13])) {
+                if (strpos($item[13], '-') !== false) {
+                    list( $timeToHarvestStart, $timeToHarvestEnd ) = array_map('trim', explode("-", $item[13]));
+                }
+                else {
+                    $timeToHarvestStart = $item[13];
+                }
             }
 
 
@@ -154,8 +170,10 @@ class LoadPlantData extends AbstractFixture implements OrderedFixtureInterface
             $entity->setPlantingEnd($plantationEnd);
             $entity->setHarvestStart($harvestStart);
             $entity->setHarvestEnd($harvestEnd);
-            $entity->setTimeToSprout($item[12]);
-            $entity->setTimeToHarvest($item[13]);
+            $entity->setTimeToSproutStart($timeToSproutStart);
+            $entity->setTimeToSproutEnd($timeToSproutEnd);
+            $entity->setTimeToHarvestStart($timeToHarvestStart);
+            $entity->setTimeToHarvestEnd($timeToHarvestEnd);
 
 	        // -- add reference for further fixtures
 	        $this->addReference('Plant'.$index, $entity);

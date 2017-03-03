@@ -44,8 +44,28 @@
                 <td>{{ plant.lineDistance }} cm</td>
                 <td>{{ plant.lineInterval }} cm</td>
                 <td>{{ plant.watering }}</td>
-                <td>{{ plant.timeToSprout }} j</td>
-                <td>{{ plant.timeToHarvest }} j</td>
+                <td>
+                    {% if plant.timeToSproutStart %}
+                        {{ plant.timeToSproutStart }}
+                        {% if plant.timeToSproutEnd %}
+                            - {{ plant.timeToSproutEnd }}
+                        {% endif %}
+                        j
+                    {% else %}
+                        -
+                    {% endif %}
+                </td>
+                <td>
+                    {% if plant.timeToHarvestStart %}
+                        {{ plant.timeToHarvestStart }}
+                        {% if plant.timeToHarvestEnd %}
+                            - {{ plant.timeToHarvestEnd }}
+                        {% endif %}
+                        j
+                    {% else %}
+                        -
+                    {% endif %}
+                </td>
                 <td>
                     {% if plant.underCoverStart %}
                         {{ date('2000-' ~ plant.underCoverStart ~ '-1')|date("M") }}
