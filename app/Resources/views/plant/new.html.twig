@@ -1,19 +1,6 @@
 {% extends 'base.html.twig' %}
 
-
-{% form_theme form _self %}
-
-{%- block choice_widget_expanded -%}
-    <div {{ block('widget_container_attributes') }}>
-    {%- for child in form %}
-        <div class="controlButton">
-            {{- form_widget(child) -}}
-            {{- form_label(child, null, {translation_domain: choice_translation_domain}) -}}
-        </div>
-    {% endfor -%}
-    </div>
-{%- endblock choice_widget_expanded -%}
-
+{% form_theme form 'form/choice_widget_expanded.html.twig' %}
 
 {% block body %}
 <div class="mainContainer">
