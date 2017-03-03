@@ -70,8 +70,8 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
 /* Simple animation with named arguments */
 /* line 7, ../sass/admin.scss */
 html {
-  background-color: #222;
   color: #eee;
+  background-color: #222;
 }
 
 /* line 12, ../sass/admin.scss */
@@ -92,7 +92,7 @@ a {
   margin: auto;
 }
 
-/* line 29, ../sass/admin.scss */
+/* line 27, ../sass/admin.scss */
 h1 {
   font-family: 'Muli', sans-serif;
   font-size: 2em;
@@ -101,13 +101,14 @@ h1 {
   border-bottom: 2px solid white;
 }
 
-/* line 38, ../sass/admin.scss */
+/* line 35, ../sass/admin.scss */
 label {
   display: inline-block;
   padding: 10px;
+  width: auto;
 }
 
-/* line 45, ../sass/admin.scss */
+/* line 41, ../sass/admin.scss */
 input[type=radio] + label, input[type=checkbox] + label {
   display: inline-block;
   padding: 10px 20px;
@@ -115,7 +116,7 @@ input[type=radio] + label, input[type=checkbox] + label {
   border: 2px solid transparent;
 }
 
-/* line 53, ../sass/admin.scss */
+/* line 48, ../sass/admin.scss */
 input[type=radio]:checked + label, input[type=checkbox]:checked + label {
   color: #eee;
   border-color: white;
@@ -124,121 +125,222 @@ input[type=radio]:checked + label, input[type=checkbox]:checked + label {
   border-radius: 10px;
 }
 
-/* line 62, ../sass/admin.scss */
+/* line 55, ../sass/admin.scss */
 form {
   font-family: 'Muli', sans-serif;
   font-weight: 400;
 }
 
-/* line 67, ../sass/admin.scss */
+/* line 60, ../sass/admin.scss */
 input {
   font-family: 'Muli', sans-serif;
   font-weight: 600;
 }
 
-/* line 73, ../sass/admin.scss */
+/* line 65, ../sass/admin.scss */
 input[type=text], input[type=number], select {
   height: 40px;
   padding: 0 10px;
   box-sizing: border-box;
 }
 
-/* line 79, ../sass/admin.scss */
+/* line 71, ../sass/admin.scss */
 input[type=text], input[type=number] {
   color: #eee;
   background-color: #111;
   border: 1px solid #555;
 }
 
-/* line 85, ../sass/admin.scss */
+/* line 77, ../sass/admin.scss */
 input[type=text] {
   width: 50%;
 }
 
-/* line 89, ../sass/admin.scss */
+/* line 81, ../sass/admin.scss */
 input[type=number] {
-  width: 100px;
+  width: 60px;
   text-align: right;
   padding-right: 15px;
   -moz-appearance: textfield;
 }
 
-/* line 96, ../sass/admin.scss */
+/* line 88, ../sass/admin.scss */
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   -webkit-appearance: none;
 }
 
-/* line 101, ../sass/admin.scss */
+/* line 93, ../sass/admin.scss */
 select {
   display: inline-block;
   position: relative;
   top: -4px;
+  padding: 0 5px;
 }
 
-/* line 107, ../sass/admin.scss */
+/* line 100, ../sass/admin.scss */
 #appbundle_plant > div {
   border-bottom: 1px solid #ccc;
   padding: 10px 0;
 }
 
-/* line 113, ../sass/admin.scss */
+/* line 105, ../sass/admin.scss */
 table {
   margin: auto;
 }
 
-/* line 117, ../sass/admin.scss */
+/* line 109, ../sass/admin.scss */
 table.show {
   width: 100%;
 }
 
-/* line 121, ../sass/admin.scss */
+/* line 113, ../sass/admin.scss */
 td, th {
   border: 1px solid white;
   padding: 5px 10px;
 }
 
-/* line 126, ../sass/admin.scss */
+/* line 118, ../sass/admin.scss */
 .control {
   text-align: center;
   padding: 10px !important;
 }
 
-/* line 131, ../sass/admin.scss */
+/* line 123, ../sass/admin.scss */
+.controlButton {
+  display: inline-block;
+}
+
+/* line 127, ../sass/admin.scss */
+#appbundle_plant_friendlyPlants .controlButton,
+#appbundle_plant_enemyPlants .controlButton,
+#appbundle_plant_soil .controlButton {
+  width: 100%;
+}
+
+/* line 134, ../sass/admin.scss */
+#appbundle_plant_watering .controlButton,
+#appbundle_plant_underCoverStart .controlButton,
+#appbundle_plant_underCoverEnd .controlButton,
+#appbundle_plant_inGroundStart .controlButton,
+#appbundle_plant_inGroundEnd .controlButton,
+#appbundle_plant_plantingStart .controlButton,
+#appbundle_plant_plantingEnd .controlButton,
+#appbundle_plant_harvestStart .controlButton,
+#appbundle_plant_harvestEnd .controlButton {
+  width: 49%;
+}
+
+/* line 146, ../sass/admin.scss */
+#appbundle_plant_underCoverStart .controlButton {
+  width: 49%;
+}
+
+/* line 150, ../sass/admin.scss */
 table.show td {
   font-weight: 600;
 }
 
 @media screen and (min-width: 700px) {
-  /* line 137, ../sass/admin.scss */
+  /* line 156, ../sass/admin.scss */
   .mainContainer {
     display: inline-block;
     font-size: 1.2em;
   }
 
-  /* line 142, ../sass/admin.scss */
+  /* line 161, ../sass/admin.scss */
   table.show td, table.show th {
     padding: 5px 50px 5px 10px;
   }
+
+  /* line 166, ../sass/admin.scss */
+  label[for=appbundle_plant_seedsQuantity], label[for=appbundle_plant_seedingDepth],
+  label[for=appbundle_plant_lineDistance], label[for=appbundle_plant_lineInterval] {
+    width: 30%;
+  }
+
+  /* line 171, ../sass/admin.scss */
+  .controlButton {
+    width: 16%;
+  }
+
+  /* line 176, ../sass/admin.scss */
+  #appbundle_plant_friendlyPlants .controlButton, #appbundle_plant_enemyPlants .controlButton {
+    width: 49%;
+  }
+
+  /* line 180, ../sass/admin.scss */
+  #appbundle_plant_soil .controlButton {
+    width: 24%;
+  }
+
+  /* line 184, ../sass/admin.scss */
+  #appbundle_plant_watering .controlButton {
+    width: auto;
+  }
+
+  /* line 188, ../sass/admin.scss */
+  #appbundle_plant_underCoverStart .controlButton,
+  #appbundle_plant_underCoverEnd .controlButton,
+  #appbundle_plant_inGroundStart .controlButton,
+  #appbundle_plant_inGroundEnd .controlButton,
+  #appbundle_plant_plantingStart .controlButton,
+  #appbundle_plant_plantingEnd .controlButton,
+  #appbundle_plant_harvestStart .controlButton,
+  #appbundle_plant_harvestEnd .controlButton {
+    width: 15%;
+  }
 }
-@media screen and (min-width: 1200px) {
-  /* line 153, ../sass/admin.scss */
+@media screen and (min-width: 1280px) {
+  /* line 202, ../sass/admin.scss */
+  .mainContainer {
+    max-width: 1280px;
+  }
+
+  /* line 206, ../sass/admin.scss */
   input {
     font-size: 1em;
   }
 
-  /* line 157, ../sass/admin.scss */
+  /* line 210, ../sass/admin.scss */
   label {
     width: 30%;
   }
 
-  /* line 161, ../sass/admin.scss */
+  /* line 214, ../sass/admin.scss */
   input[type=radio] + label, input[type=checkbox] + label {
     width: auto;
   }
 
-  /* line 165, ../sass/admin.scss */
+  /* line 218, ../sass/admin.scss */
   #appbundle_plant_soil, #appbundle_plant_watering {
     display: inline-block;
+  }
+
+  /* line 222, ../sass/admin.scss */
+  .controlButton {
+    width: auto;
+  }
+
+  /* line 226, ../sass/admin.scss */
+  #appbundle_plant_friendlyPlants .controlButton, #appbundle_plant_enemyPlants .controlButton {
+    width: 33%;
+  }
+
+  /* line 230, ../sass/admin.scss */
+  #appbundle_plant_soil .controlButton {
+    width: 16%;
+  }
+
+  /* line 234, ../sass/admin.scss */
+  #appbundle_plant_underCoverStart .controlButton,
+  #appbundle_plant_underCoverEnd .controlButton,
+  #appbundle_plant_inGroundStart .controlButton,
+  #appbundle_plant_inGroundEnd .controlButton,
+  #appbundle_plant_plantingStart .controlButton,
+  #appbundle_plant_plantingEnd .controlButton,
+  #appbundle_plant_harvestStart .controlButton,
+  #appbundle_plant_harvestEnd .controlButton {
+    width: auto;
   }
 }
