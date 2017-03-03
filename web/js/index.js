@@ -1,5 +1,18 @@
 $(function() {
 
+    // -- load bg image
+    var img = new Image();
+    var $bg = $("#bg");
+    $bg.css('opacity' , 0)
+
+    img.onload = function () {
+        $("#bg").attr('src', this.src);
+        resizeBg();
+        $bg.animate( {opacity: 1} , 500 );
+    }
+    img.src = "/images/index1.jpg"; // + cnt;
+
+
     var translations = {
         month: {
             fr: {
@@ -273,6 +286,8 @@ function resizeBg() {
 
     var $window = $(window);
     var $bg = $("#bg");
+
+    $bg.animate( {opacity: 0} , 1000 );
 
     // -- image ratio
     imageAspectRatio = $bg.width() / $bg.height();
