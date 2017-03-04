@@ -96,8 +96,77 @@ $(function() {
 
     }).trigger("resize");
 
+    $(document).on("click","#content",function(e) {
+        createCalendar(plants, translations);
+    });
+
+
+    // console.log(range(4,6));
 
 });
+
+function range(start, stop){
+  var a=[start], b=start;
+  while(b<stop){b++;a.push(b)}
+  return a;
+};
+
+
+
+
+
+function createCalendar(plants, translations) {
+
+    /*
+    *  create a plantsCalendar
+    *
+    *    plantsCalendar[plant.name][property][monthArray]
+    *
+    */
+    var plantsCalendar = {};
+
+    $.each( plants, function( i, plant ) {
+
+        $.each( ['under_cover', 'in_ground', 'planting'], function( i, property ) {
+
+            if (plant[property + '_start']) {
+
+                if (! plantsCalendar[plant.name]) {
+                    plantsCalendar[plant.name] = [];
+                }
+
+                if (plant[property + '_end']) {
+                    plantsCalendar[plant.name][property] = range(plant[property + '_start'], plant[property + '_end']);
+                }
+                else {
+                    plantsCalendar[plant.name][property] = [plant[property + '_start']];
+                }
+            }
+        });
+    });
+
+
+
+    $.each( plants, function( i, plant ) {
+
+        for (var month = 1; month <= 12; month++) {
+
+            $.each( ['under_cover', 'in_ground', 'planting'], function( i, property ) {
+
+                if ($.inArray( month, plantsCalendar[plant.name][property] ) !== -1 ) {
+
+                    // do stuff
+                }
+            });
+        }
+    });
+
+
+    console.log(plantsCalendar);
+
+}
+
+
 
 /*
  * -- create and add parameters table
