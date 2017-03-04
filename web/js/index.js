@@ -53,12 +53,8 @@ $(function() {
 
         $(this).addClass('active')
 
-        // -- create image name
-        var imageName = plants[$(this).attr('id')].name;
-
-        imageName = imageName.replace(/ /g, '_');
-
-        imageName = imageName.replace(/'/g, '--');
+        // -- get image name
+        var imageName = plants[$(this).attr('id')].image;
 
         // -- load new bg image
         var img = new Image();
@@ -68,7 +64,7 @@ $(function() {
             $bg.attr('src', this.src);
             resizeBg();
         }
-        img.src = "/images/" + imageName + ".jpg"; // + cnt;
+        img.src = "/images/" + imageName;
 
         // -- fill parameters table
         addParamsTable(plants[$(this).attr('id')], translations);
@@ -170,13 +166,52 @@ function addParamsTable(plant, translations) {
     );
 
     // -- second values line
+    var timeToSproutStart = '';
+    if (plant.time_to_sprout_start !== undefined) {
+        timeToSproutStart =  plant.time_to_sprout_start;
+    }
+
+    var timeToSproutEnd = '';
+    if (plant.time_to_sprout_end !== undefined) {
+        timeToSproutEnd =  plant.time_to_sprout_end;
+    }
+
+    var timeToSproutString = '';
+
+    if (timeToSproutStart !== '') {
+        timeToSproutString = timeToSproutStart;
+        if (timeToSproutEnd !== '') {
+            timeToSproutString += ' - ' + timeToSproutEnd;
+        }
+    }
+
+
+    var timeToHarvestStart = '';
+    if (plant.time_to_harvest_start !== undefined) {
+        timeToHarvestStart =  plant.time_to_harvest_start;
+    }
+
+    var timeToHarvestEnd = '';
+    if (plant.time_to_harvest_end !== undefined) {
+        timeToHarvestEnd =  plant.time_to_harvest_end;
+    }
+
+    var timeToHarvestString = '';
+
+    if (timeToHarvestStart !== '') {
+        timeToHarvestString = timeToHarvestStart;
+        if (timeToHarvestEnd !== '') {
+            timeToHarvestString += ' - ' + timeToHarvestEnd;
+        }
+    }
+
     table.append(
         $('<tr>', { class: 'values' }).append(
             $('<td>', { text: plant.watering.name })
         ).append(
-            $('<td>', { text: plant.time_to_sprout || '-' })
+            $('<td>', { text: timeToSproutString || '-' })
         ).append(
-            $('<td>', { text: plant.time_to_harvest || '-' })
+            $('<td>', { text: timeToHarvestString || '-' })
         )
     );
 
