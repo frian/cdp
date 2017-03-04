@@ -113,6 +113,11 @@
             {{ form_widget(form.tips) }}
         </div>
 
+        <div>
+            {{ form_label(form.image) }}
+            {{ form_widget(form.image) }}
+        </div>
+
         <div class="control">
             <a href="{{ path('admin_plant_index') }}">Back to the list</a>
             <input type="submit" value="Create" />

@@ -174,6 +174,7 @@ class LoadPlantData extends AbstractFixture implements OrderedFixtureInterface
             $entity->setTimeToSproutEnd($timeToSproutEnd);
             $entity->setTimeToHarvestStart($timeToHarvestStart);
             $entity->setTimeToHarvestEnd($timeToHarvestEnd);
+            $entity->setImage($item[0].'.jpg');
 
 	        // -- add reference for further fixtures
 	        $this->addReference('Plant'.$index, $entity);

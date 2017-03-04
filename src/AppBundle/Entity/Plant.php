@@ -189,6 +189,13 @@ class Plant
      */
     private $tips;
 
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="image", type="string", length=255, nullable=true)
+     */
+    private $image;
+
 
     public function __toString() {
         return $this->name;
@@ -794,5 +801,29 @@ class Plant
     public function getEnemyPlants()
     {
         return $this->enemyPlants;
+    }
+
+    /**
+     * Set image
+     *
+     * @param string $image
+     *
+     * @return Plant
+     */
+    public function setImage($image)
+    {
+        $this->image = $image;
+
+        return $this;
+    }
+
+    /**
+     * Get image
+     *
+     * @return string
+     */
+    public function getImage()
+    {
+        return $this->image;
     }
 }

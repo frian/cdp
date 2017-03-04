@@ -92,7 +92,8 @@ class PlantType extends AbstractType
                 'expanded' => true,
                 'multiple' => true
             ))
-            ->add('tips');
+            ->add('tips')
+            ->add('image');;
     }
 
     /**
