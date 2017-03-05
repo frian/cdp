@@ -1,5 +1,11 @@
 $(function() {
 
+    var route = 'home';
+
+    if (window.location.pathname == '/calendar') {
+        route = 'calendar';
+    }
+
     // -- load bg image
     var img = new Image();
     var $bg = $("#bg");
@@ -29,9 +35,17 @@ $(function() {
      * -- load data, create navigation spans
     */
     $.getJSON( "/loadplants", function( data ) {
-        $.each( data, function( i, item ) {
-            $("#nav .cell").append('<span id="' + i + '">' + ' ' + item.name + '</div>');
-        });
+
+        if (route === 'home') {
+            $.each( data, function( i, item ) {
+                $("#nav .cell").append('<span id="' + i + '">' + ' ' + item.name + '</div>');
+            });
+        }
+        else if (route === 'calendar') {
+            createCalendar(data, translations);
+        }
+
+
         plants = data;
         // console.log(data);
         setBodyHeight();
@@ -96,7 +110,13 @@ $(function() {
 
     }).trigger("resize");
 
+
+    var $nav;
+
     $(document).on("click","#content",function(e) {
+
+        $nav = $('#nav .cell').detach();
+
         createCalendar(plants, translations);
     });
 
@@ -106,9 +126,9 @@ $(function() {
 });
 
 function range(start, stop){
-  var a=[start], b=start;
-  while(b<stop){b++;a.push(b)}
-  return a;
+    var a=[start], b=start;
+    while(b<stop){b++;a.push(b)}
+    return a;
 };
 
 
@@ -127,7 +147,7 @@ function createCalendar(plants, translations) {
 
     $.each( plants, function( i, plant ) {
 
-        $.each( ['under_cover', 'in_ground', 'planting'], function( i, property ) {
+        $.each( ['under_cover', 'in_ground', 'planting', 'harvest'], function( i, property ) {
 
             if (plant[property + '_start']) {
 
@@ -146,27 +166,78 @@ function createCalendar(plants, translations) {
     });
 
 
+    /*
+    *  plants annual Calendar output
+    */
+    var table = $('<table>', { class: 'calendar' });
+
+    var thead = $('<thead>');
+    var headerRow = $('<tr>');
+    thead.append(headerRow.append($('<th>')));
+
+    for (var month = 1; month <= 12; month++) {
+        headerRow.append($('<th>', { html: "&nbsp;" + translations.month.fr[month] }));
+    }
+
+    table.append(thead);
+
+    var tbody = $('<tbody>');
 
     $.each( plants, function( i, plant ) {
 
+        var tableRow = $('<tr>');
+
+        tableRow.append($('<td>', { text: plant.name }));
+
         for (var month = 1; month <= 12; month++) {
 
-            $.each( ['under_cover', 'in_ground', 'planting'], function( i, property ) {
+            var tableCell = $('<td>');
+
+            $.each( ['under_cover', 'in_ground', 'planting', 'harvest'], function( i, property ) {
 
                 if ($.inArray( month, plantsCalendar[plant.name][property] ) !== -1 ) {
 
-                    // do stuff
+                    if (property === 'under_cover') {
+                        tableCell.append( $('<div>', { class: 'icon under_cover' }) );
+                    }
+                    else if (property === 'in_ground') {
+                        tableCell.append( $('<div>', { class: 'icon in_ground' }) );
+                    }
+                    else if (property === 'planting') {
+                        tableCell.append( $('<div>', { class: 'icon planting' }) );
+                    }
+                    else {
+                        tableCell.append( $('<div>', { class: 'icon harvest' }) );
+                    }
                 }
             });
+
+            tableRow.append(tableCell);
         }
+
+        table.append(tbody).append(tableRow);
     });
 
+    $("body").html(table);
 
-    console.log(plantsCalendar);
-
+    addFixedHeader(table);
 }
 
+function addFixedHeader(table) {
 
+    table2 = table.clone();
+
+    table2.css("position", "fixed");
+    table2.css("top", 0);
+
+    table2.find('tbody').css('opacity', 0);
+
+    $("body").append(table2);
+
+    $(window).scroll(function() {
+        table2.css('left', - $(window).scrollLeft());
+    });
+}
 
 /*
  * -- create and add parameters table
