@@ -25,6 +25,22 @@ class DefaultController extends Controller
     }
 
     /**
+     * @Route("/calendar", name="calendar")
+     */
+    public function calendarAction(Request $request)
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $plants = $em->getRepository('AppBundle:Plant')->findAll();
+
+        // replace this example code with whatever you need
+        return $this->render('default/calendar.html.twig', [
+
+        ]);
+    }
+
+
+    /**
      * @Route("/loadplants", name="load_plants")
      */
      public function loadAction(Request $request)
