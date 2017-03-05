@@ -27,7 +27,7 @@ body {
 
     font-family: 'Kalam', cursive;
     text-align: center;
-    background-color: black;
+    background-color: #ddd;
     display: table;
     width: 100%;
 }
@@ -63,7 +63,7 @@ body {
 /*
     top containers
 */
-table, .indexContainer {
+#content table, .indexContainer {
 
     width: 96%;
     height: 90%;
@@ -131,6 +131,8 @@ tr:first-child td {
     font-family: 'Kalam', cursive;
 }
 
+
+
 tr:last-child td {
     @include border-bottom-radius(20px);
     padding-bottom: 10px;
@@ -166,6 +168,62 @@ div.linkTextWrapper {
 }
 
 
+.icon {
+    display: inline-block;
+    margin-top: 5px;
+    margin-right: 2px;
+    height: 40px;
+    width: 40px;
+    background-size: contain!important;
+}
+
+.under_cover {
+    background: url(/img/undercover1.png);
+}
+
+.in_ground {
+    background: url(/img/inground1.png);
+}
+
+.planting {
+    background: url(/img/planting1.png);
+}
+
+.harvest {
+    background: url(/img/harvest1.png);
+}
+
+.calendar {
+    // border: 2px solid red;
+    // width : 90%;
+    // width: 400px;
+}
+
+.calendar td {
+    position: relative;
+    border: 1px solid black;
+    text-align: center;
+    vertical-align: top;
+    min-width: 50px;
+}
+
+.calendar tr:first-child td {
+    font-size: 1em;
+}
+
+.calendar thead th {
+    background-color: #ccc;
+    // border: 1px solid red;
+    // padding-left: 10px;
+
+}
+
+.dummy thead th {
+    background-color: #ccc;
+    // border: 1px solid red;
+    // padding-left: 10px;
+
+}
 @media all and (min-width: 768px)  and (min-height: 700px) {
 
     $normalTextSize: 1.2em;
@@ -180,7 +238,7 @@ div.linkTextWrapper {
     }
 
 
-    table, .indexContainer {
+    #content table, .indexContainer {
         width: 90%;
         height: 95%;
         @include border-radius(20px);
@@ -218,6 +276,10 @@ div.linkTextWrapper {
 
 @media all and (min-width: 1000px) and (min-height: 700px) {
 
+    .calendar td {
+        white-space:nowrap;
+    }
+
     $normalTextSize: 1.15em;
     $normalLineHeight: 1.375;
 
@@ -226,7 +288,7 @@ div.linkTextWrapper {
         line-height: $normalLineHeight;
     }
 
-    table, .indexContainer {
+    #content table, .indexContainer {
         width: 80%;
         @include border-radius(20px);
     }
@@ -250,7 +312,7 @@ div.linkTextWrapper {
         line-height: $normalLineHeight;
     }
 
-    table, .indexContainer {
+    #content table, .indexContainer {
         width: 70%;
     }
 }
@@ -273,7 +335,7 @@ div.linkTextWrapper {
         padding: 5px 40px;
     }
 
-    table, .indexContainer {
+    #content table, .indexContainer {
         width: 70%;
         height: 90%;
     }
